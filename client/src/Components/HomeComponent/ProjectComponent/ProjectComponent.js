@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText, Row} from 'mdbreact';
 import '../ItemComponent.css';
 import ProjectModalComponent from './ProjectModalComponent';
 import {field_array} from '../data';
+import { SocialIcon } from 'react-social-icons';
 
 class ProjectComponent extends Component {
     state = {
@@ -32,6 +33,16 @@ class ProjectComponent extends Component {
     );
 
     render () {
+        const email_button = <SocialIcon network="mailto" url={"mailto:" + this.props.modalEmail + "?subject=Bla"}  bgColor="#CD3636" fgColor="white"/>
+        const companyURL_button = this.props.modalCompanyURL
+                                    ? <SocialIcon className="SocialIcon" url={this.props.modalCompanyURL} target="_blank" fgColor="white"/>
+                                    : null;
+        const facebookURL_button = this.props.modalFacebookURL
+                                    ? <SocialIcon className="SocialIcon" url={this.props.modalFacebookURL} target="_blank" fgColor="white"/>
+                                    : null;
+        const instagramURL_button = this.props.modalInstagramURL
+                                    ? <SocialIcon className="SocialIcon" url={this.props.modalInstagramURL} target="_blank" fgColor="white"/>
+                                    : null;
         return (
             <div className="Item">
                 <MDBCol>
@@ -50,6 +61,12 @@ class ProjectComponent extends Component {
                         <MDBCardBody className="Body">
                             <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
                             <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>
+                            <Row className="Footer">
+                                {email_button}
+                                {companyURL_button}
+                                {facebookURL_button}
+                                {instagramURL_button}
+                            </Row>       
                         </MDBCardBody>
                         <ProjectModalComponent className="Modal"
                             isOpen={this.state.modal} 
@@ -58,10 +75,10 @@ class ProjectComponent extends Component {
                             modalCardProjectDesc={this.props.cardProjectDesc}
                             modalCardCompDesc={this.props.cardCompDesc}
                             modalField={this.fieldArrayIcon(this.props.cardField)}
-                            modalEmail={this.props.cardEmail}
-                            modalCompanyURL={this.props.cardCompanyURL}
-                            modalFacebookURL={this.props.cardFacebookURL}
-                            modalInstagramURL={this.props.cardInstagramURL}
+                            modalEmail={email_button}
+                            modalCompanyURL={companyURL_button}
+                            modalFacebookURL={facebookURL_button}
+                            modalInstagramURL={instagramURL_button}
                         />
                     </MDBCard>
                 </MDBCol>
