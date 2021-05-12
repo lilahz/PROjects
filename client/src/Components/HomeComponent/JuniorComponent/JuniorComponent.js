@@ -42,13 +42,13 @@ class JuniorComponent extends Component {
 
         const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.cardEmail + "?subject=Bla"} bgColor="#CD3636" fgColor="white"/>;
 
-        const personalURL_button = this.props.modalPersonalURL 
+        const personalURL_button = this.props.cardPersonalURL 
                                     ? <SocialIcon className="SocialIcon" url={this.props.cardPersonalURL} target="_blank" fgColor="white" />
                                     : null;
-        const facebookURL_button = this.props.modalFacebookURL
+        const facebookURL_button = this.props.cardFacebookURL
                                     ? <SocialIcon className="SocialIcon" url={this.props.cardFacebookURL} target="_blank" fgColor="white" />
                                     : null;
-        const instagramURL_button = this.props.modalInstagramURL
+        const instagramURL_button = this.props.cardInstagramURL
                                     ? <SocialIcon className="SocialIcon" url={this.props.cardInstagramURL} target="_blank" fgColor="white"/>
                                     : null;
         const linkedInURL_button = this.props.cardLinkedInURL 
