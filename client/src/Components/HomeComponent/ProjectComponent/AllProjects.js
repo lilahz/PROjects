@@ -89,17 +89,17 @@ class AllProjects extends Component {
     }
 
     render() {
-        const pageBody = (this.state.currProjectsArray === null) ? 
-                        <div className="emptyState">
-                            <img src={emptyState} alt=""/>
-                        </div> :
-                        // (this.state.projectsStatusFilter === null && this.state.projectsFieldFilter === null) ?
-                        // <ProjectsComponent projects = {this.state.allProjectsArray}/> : 
-                        <ProjectsComponent projects = {this.state.currProjectsArray}/> ; 
+        const pageBody = (this.state.currProjectsArray === null) 
+                            ?<div className="emptyState">
+                                <img src={emptyState} alt=""/>
+                            </div> 
+                            :// (this.state.projectsStatusFilter === null && this.state.projectsFieldFilter === null) ?
+                            // <ProjectsComponent projects = {this.state.allProjectsArray}/> : 
+                            <ProjectsComponent projects = {this.state.currProjectsArray}/> ; 
         return (
             <div className={classes.AllProjects}>
                 <h1 className="ListHeader">כל הפרוייקטים </h1>
-                <div className="container">
+                <div className="container-fluid">
                     <div className={classes.Filters} >
                         <div className="col-4 text-center " style={{margin : 'auto 30px'}}>
                             <FilterComponent
@@ -119,7 +119,9 @@ class AllProjects extends Component {
                             />
                         </div>
                     </div>
-                {pageBody}
+                    <div>
+                    {pageBody}
+                    </div>
             </div>
         </div>
         )
