@@ -35,44 +35,33 @@ class ProjectComponent extends Component {
         return (
             <div >
                 <MDBCol className="Item">
-                    {/* <View hover zoom>
-                        <MDBCardImage
-                            className="Picture"
-                            src={this.props.cardImage 
-                                ? `data:image/jpeg;base64,${this.props.cardImage}` 
-                                : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"} 
-                            waves />
-                        <Mask className="flex-center" overlay="white-light">
-                            <MDBBtn onClick = { this.toggle }>קצת פרטים</MDBBtn>
-                        </Mask>
-                    </View> */}
-                        <MDBCardBody className="Body">
+                    <MDBCardBody className="Body">
                         <View  hover zoom className="Picture"  >
-                                <img style={{width:"100%",height:"100%"}}
-                                    src={this.props.cardImage 
-                                        ? `data:image/jpeg;base64,${this.props.cardImage}`
-                                        : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
-                                    waves >
-                                    </img>
-                                <Mask className="flex-center"overlay="white-light">
-                                    <MDBBtn onClick = { this.toggle }>קצת פרטים</MDBBtn>
-                                </Mask>
-                            </View>
-                            <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
-                            <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>
-                        </MDBCardBody>
-                        <ProjectModalComponent className="Modal"
-                            isOpen={this.state.modal} 
-                            toggle={this.toggle}
-                            modalTitle={this.props.cardTitle}
-                            modalCardProjectDesc={this.props.cardProjectDesc}
-                            modalCardCompDesc={this.props.cardCompDesc}
-                            modalField={this.fieldArrayIcon(this.props.cardField)}
-                            modalEmail={this.props.cardEmail}
-                            modalCompanyURL={this.props.cardCompanyURL}
-                            modalFacebookURL={this.props.cardFacebookURL}
-                            modalInstagramURL={this.props.cardInstagramURL}
-                        />
+                            <img style={{width:"100%",height:"100%"}}
+                                src={this.props.cardImage 
+                                    ? `data:image/jpeg;base64,${this.props.cardImage}`
+                                    : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
+                                waves >
+                            </img>
+                            <Mask className="flex-center"overlay="white-light">
+                                <MDBBtn onClick = { this.toggle }>קצת פרטים</MDBBtn>
+                            </Mask>
+                        </View>
+                        <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
+                        <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>
+                    </MDBCardBody>
+                    <ProjectModalComponent className="Modal"
+                        isOpen={this.state.modal} 
+                        toggle={this.toggle}
+                        modalTitle={this.props.cardTitle}
+                        modalCardProjectDesc={this.props.cardProjectDesc}
+                        modalCardCompDesc={this.props.cardCompDesc}
+                        modalField={this.fieldArrayIcon(this.props.cardField)}
+                        modalEmail={this.props.cardEmail}
+                        modalCompanyURL={this.props.cardCompanyURL}
+                        modalFacebookURL={this.props.cardFacebookURL}
+                        modalInstagramURL={this.props.cardInstagramURL}
+                    />
                 </MDBCol>
             </div>
         )

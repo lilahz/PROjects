@@ -3,12 +3,10 @@
 }
 
 .Item {
-    justify-content: space-around;
     padding-bottom: 48px;
     max-width: 30%;
     border-radius: 20%;
     top: 50px;
-
 }
 
 .ItemBody {
@@ -18,8 +16,6 @@
 .ItemFooter {
     height: 3em;
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .Modal {
@@ -37,7 +33,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     width: 132px;
     height: 60px;
     top: -60px;    
@@ -46,18 +41,14 @@
 .Body{
     width: 200px;
     height: 270px;
-    top: 104px;
-    
-
     background: #FFF6EB;
     border-radius: 0px 0px 8px 8px;
 }
 
 .Transparent{
-opacity: 0;
+    opacity: 0;
     width: 250px;
     height: 130px;
-
 }
 
 .Picture{
