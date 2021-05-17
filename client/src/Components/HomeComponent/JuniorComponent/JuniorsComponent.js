@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row} from 'react-bootstrap';
+import { MDBRow } from "mdbreact";
 
 import JuniorComponent from './JuniorComponent';
 import './JuniorsComponent.css';
@@ -7,7 +7,7 @@ import './JuniorsComponent.css';
 export default function JuniorsComponent(props) {
 
     return <div className="JuniorsComponent">
-                <Row >
+                <MDBRow >
                     {props.juniors.map((junior) => (
                         <JuniorComponent key={junior.id} className="col-sm-4"
                             cardTitle={junior.full_name} 
@@ -21,6 +21,6 @@ export default function JuniorsComponent(props) {
                             cardLinkedInURL={junior.linkedIn_url}
                             cardGitHubURL={junior.gitHub_url}
                             />))}
-                </Row>
+                </MDBRow>
     </div>
 }

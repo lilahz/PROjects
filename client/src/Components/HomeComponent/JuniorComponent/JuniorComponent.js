@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBCardFooter, Row} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBCardFooter, Row, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import JuniorModalComponent from './JuniorModalComponent';
 import {field_array} from '../data';
 import { SocialIcon } from 'react-social-icons';
+import defaultProfilePic from './images/default_profile_pic.jpg';
 
 
 class JuniorComponent extends Component {
@@ -58,33 +59,35 @@ class JuniorComponent extends Component {
                                     ? <SocialIcon className="SocialIcon" url={this.props.cardGitHubURL} target="_blank" fgColor="white"/>
                                     : null;
         return (
-            <div className="Item">
-                <MDBCol>
-                    <MDBCard className="Card">
+            <MDBCol md="4">
+                <MDBCard className="Card">
                     <View hover zoom>
                         <MDBCardImage 
                             className="Picture" 
                             src={this.props.cardImage 
                                 ? `data:image/jpeg;base64,${this.props.cardImage}` 
-                                : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
+                                : {defaultProfilePic}}
                             waves
                             />
-                        <Mask className="flex-center"overlay="white-light">
+                        <Mask className="flex-center" overlay="white-light">
                             <MDBBtn onClick = { this.toggle }>קצת פרטים</MDBBtn>
                         </Mask>
                     </View>
                     <MDBCardBody className="Body">
-                        <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
-                        <MDBCardText className="Fields">{this.fieldArrayIconForCard(this.props.cardField)}</MDBCardText>
-                        <Row className="Footer">
+                        <div className="InnerBody">
+                            <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
+                            <MDBCardText className="Fields">{this.fieldArrayIconForCard(this.props.cardField)}</MDBCardText>
+                        </div>
+                    </MDBCardBody>  
+                    <MDBFooter className="Footer">
                             {email_button}
                             {personalURL_button}
                             {facebookURL_button}
                             {instagramURL_button}
                             {linkedInURL_button}
                             {gitHubURL_button}
-                        </Row> 
-                    </MDBCardBody>  
+                    </MDBFooter>
+                        
                     <JuniorModalComponent className="Modal"
                         isOpen={this.state.modal} 
                         toggle={this.toggle}
