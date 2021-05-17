@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText, Row} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText, Row, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import ProjectModalComponent from './ProjectModalComponent';
 import {field_array} from '../data';
@@ -33,7 +33,7 @@ class ProjectComponent extends Component {
     );
 
     render () {
-        const email_button = <SocialIcon network="mailto" url={"mailto:" + this.props.modalEmail + "?subject=Bla"}  bgColor="#CD3636" fgColor="white"/>
+        const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.modalEmail + "?subject=Bla"}  bgColor="#CD3636" fgColor="white"/>
         const companyURL_button = this.props.modalCompanyURL
                                     ? <SocialIcon className="SocialIcon" url={this.props.modalCompanyURL} target="_blank" fgColor="white"/>
                                     : null;
@@ -44,12 +44,10 @@ class ProjectComponent extends Component {
                                     ? <SocialIcon className="SocialIcon" url={this.props.modalInstagramURL} target="_blank" fgColor="white"/>
                                     : null;
         return (
-            <div className="Item">
-                <MDBCol>
+                <MDBCol md="4">
                     <MDBCard className="Card">
                     <View hover zoom>
-                        <MDBCardImage
-                            className="Picture"
+                        <MDBCardImage className="Picture"
                             src={this.props.cardImage 
                                 ? `data:image/jpeg;base64,${this.props.cardImage}`
                                 : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
@@ -59,15 +57,18 @@ class ProjectComponent extends Component {
                         </Mask>
                     </View>
                         <MDBCardBody className="Body">
-                            <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
-                            <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>
-                            <Row className="Footer">
-                                {email_button}
-                                {companyURL_button}
-                                {facebookURL_button}
-                                {instagramURL_button}
-                            </Row>       
+                            <div className="InnerBody">
+                                <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
+                                <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>  
+                            </div>
                         </MDBCardBody>
+                        <MDBFooter className="Footer">
+                            {email_button}
+                            {companyURL_button}
+                            {facebookURL_button}
+                            {instagramURL_button}
+                        </MDBFooter>
+
                         <ProjectModalComponent className="Modal"
                             isOpen={this.state.modal} 
                             toggle={this.toggle}
@@ -82,7 +83,6 @@ class ProjectComponent extends Component {
                         />
                     </MDBCard>
                 </MDBCol>
-            </div>
         )
     }
 }

@@ -1,59 +1,101 @@
-.Landing {
-    position:relative;
-    width: 1440px;
-    height: 397px;
-    left: 0px;
-    top: 60px;
+.LandingTop .LandingBottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+
+.LandingTop {
+    height: 430px;
     background: #EE2A7C;
-}
-
-.LandingLeft h1 {
-    padding-left: 0 20px;
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 4em;
-    text-align: center;
-    letter-spacing: -2px;
-    text-transform: uppercase;
-    margin-left: 1px;
-}
-
-.LandingLeft p {
-    align-self: center;
-    text-align: center;
-    max-width: 88vh;
-    padding: 0 16px;
-    direction: rtl;
-}
-
-.LandingLeft div {
-    display: flex;
-    min-width: 40%;
-    margin: 16px;
-    direction: rtl;
-} 
-
-.LandingRight {
-    align-content: center;
-    padding: 0 24px;
-}
-
-.LandingRight img {
-    height: 28vh;
-    width: 88vw;
+    top: 0;
 }
 
 .LandingBottom {
+    bottom: 0;
+}
+
+
+.LandingLeft {
+    position:relative;
+    float: left;
+    width: 50%;
+}
+
+.LandingLeftImage {
+    position: absolute;
+    width: 288px;
+    height: 439px;
+    left: 100px;
+    top: 10px;
+}
+
+.LandingRightLogo {
+    width: 50%;
+    position: absolute;
+    top: 150px;
+    text-align: center;
+} 
+
+.LandingRightButtons {
     display: flex;
-    flex-direction: row;
-    align-content: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: row;
+   
+    align-items: center;
+    width: 50%;
+    position: absolute;
+    top: 300px;
+    text-align: center;
+}
+
+.SignUpCompany{
+    font-size: 18px;
+
+    width: 230px;
+    margin: 20px;
+    height: 50px;
+
+    border: 2px solid #FFFDFA;
+    box-sizing: border-box;
+    border-radius: 12px;
+    line-height: 13px;
+}
+
+.SignUpJunior {
+    font-size: 18px;
+
+    width: 230px;
+    margin: 20px;
+    height: 50px;
+
+    border: 2px solid #FFFDFA;
+    box-sizing: border-box;
+    border-radius: 12px;
+    line-height: 13px;
+}
+
+.LandingRight {
+    float: right;
+    width: 50%;
+}
+
+.LandingBottom h1 {
+    width: 300px;
+    height: 44px;
+    right: 96px;
+    top: 493px;
+    float: right;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    line-height: 44px;
+    font-size: 36px;
+
 }
 
 .LandingBottomButton {
-    font-family: "Trebuchet MS", sans-serif;
     font-size: 2.5em;
-    /* letter-spacing: -2px; */
     text-align: center;
     color: rgb(83, 93, 102);
     background-color: 'transparent';

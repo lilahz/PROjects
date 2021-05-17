@@ -1,11 +1,11 @@
 import React from 'react';
-import {Row} from 'react-bootstrap';
+import { MDBRow } from "mdbreact";
 import ProjectComponent from './ProjectComponent';
 import './ProjectsComponent.css';
 
 export default function ProjectsComponent(props) {
     return <div className="projectsComponent">
-                <Row >
+                <MDBRow>
                     {props.projects.map((project) => (
                         <ProjectComponent key={project.id} className="col-sm-4"
                             cardTitle={project.company_name} 
@@ -18,6 +18,6 @@ export default function ProjectsComponent(props) {
                             cardFacebookURL={project.facebook_url}
                             cardInstagramURL={project.instagram_url}
                             />))}
-                </Row>
+                </MDBRow>
     </div>
 }
