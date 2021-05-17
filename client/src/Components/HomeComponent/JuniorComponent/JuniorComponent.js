@@ -99,8 +99,7 @@ class JuniorComponent extends Component {
                         modalGitHubURL={gitHubURL_button}
                     />
                     </MDBCard>
-                </MDBCol>
-            </div>
+              </MDBCol>
         )
     }
 }
