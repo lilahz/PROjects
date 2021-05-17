@@ -101,9 +101,10 @@ class JuniorComponent extends Component {
                         modalLinkedInURL={linkedInURL_button}
                         modalGitHubURL={gitHubURL_button}
                     />
-                </MDBCard>
-            </MDBCol>
-        )           
+                    </MDBCard>
+              </MDBCol>
+            </div>
+        )
     }
 }
 
