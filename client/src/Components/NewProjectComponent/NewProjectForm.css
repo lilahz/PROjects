@@ -1,4 +1,4 @@
-.Form {
+/* .Form {
     margin-left: 32vw;
     margin-right: 32vw;
 }
@@ -23,4 +23,9 @@
     padding-right: 15px;
     width: 12em;
     background-color: transparent;
+} */
+
+.FormInput{
+    width: 100%;
+    background: #FFF6EB;
 }

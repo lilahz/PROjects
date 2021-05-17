@@ -11,7 +11,7 @@ class ProjectCarouselComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            background: "lightskyblue",
+            background: "#FFF6EB",
             animation: "null",
             error: null,
             isLoaded: false,
@@ -22,7 +22,7 @@ class ProjectCarouselComponent extends Component {
     scrollEventHandler = (event) => {
         if (window.scrollY > 300) {
             this.setState({
-                background: "linear-gradient(to bottom, #87cefa 10%, #a6c5d9 100%, #000000 100%)",
+                background: "linear-gradient(to bottom, #FFF6EB 10%, #a6c5d9 100%, #000000 100%)",
                 animation: "grow 360s  linear 10ms" 
             });
         }

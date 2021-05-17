@@ -11,16 +11,6 @@ import { SocialIcon } from 'react-social-icons';
 class ProjectModalComponent extends Component {
 
     render() {
-        const email_button = <SocialIcon network="mailto" url={"mailto:" + this.props.modalEmail + "?subject=Bla"} />
-        const companyURL_button = this.props.modalCompanyURL
-                                    ? <SocialIcon url={this.props.modalCompanyURL} target="_blank" />
-                                    : null;
-        const facebookURL_button = this.props.modalFacebookURL
-                                    ? <SocialIcon url={this.props.modalFacebookURL} target="_blank" />
-                                    : null;
-        const instagramURL_button = this.props.modalInstagramURL
-                                    ? <SocialIcon url={this.props.modalInstagramURL} target="_blank" />
-                                    : null;
 
         return (
             <Modal show={this.props.isOpen} onHide={this.props.toggle} key={this.props.key}
@@ -45,10 +35,10 @@ class ProjectModalComponent extends Component {
                                 <IoPersonAdd size={25}/></MDBBtn>
                         </Tooltip> */}
                         <div className="float-right">
-                           {email_button}
-                           {companyURL_button}
-                           {facebookURL_button}
-                           {instagramURL_button}
+                           {this.props.modalEmail}
+                           {this.props.modalCompanyURL}
+                           {this.props.modalFacebookURL}
+                           {this.props.modalInstagramURL}
                         </div>
                     </Row>        
                 </Modal.Footer>

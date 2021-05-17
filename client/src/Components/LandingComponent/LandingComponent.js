@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 import {MDBBtn} from 'mdbreact';
+import {ReactComponent  as Logo} from "../logo.svg"
 
 import ProjectCarouselComponent from '../HomeComponent/ProjectComponent/ProjectCarouselComponent';
 import NewProjectModalComponent from '../NewProjectComponent/NewProjectModalComponent'
 import classes from  './LandingComponent.module.css';
-import logo from './images/landing_image.png';
+import landingImage from './images/landing_image.png';
 import { VscNewFile } from 'react-icons/vsc';
 import Tooltip from "@material-ui/core/Tooltip";
 
@@ -27,7 +28,10 @@ class LandingComponent extends Component {
             <div>
             <div className={classes.Landing}>
                 <div className={classes.LandingLeft}>
-                    <h1><b>PRO</b><span>jects</span></h1>
+                    <div>
+                        <Logo fill="white" />
+                    </div>
+                    {/* <h1><b>PRO</b><span>jects</span></h1> */}
                     <p>יצירת פלטפורמה המחברת בין זוטרים לעמותות ועסקים קטנים. הצעירים יצברו את הניסיון שחסר להם והעסקים יקבלו את השירותים להם הם זקוקים.</p>
                     {/* <div>
                         <Button 
@@ -48,7 +52,7 @@ class LandingComponent extends Component {
                     </div> */}
                 </div>
                 <div className={classes.LandingRight}>
-                    <img src={logo} alt=""/>
+                    <img src={landingImage} alt=""/>
                 </div>
             </div>
             <div className={classes.LandingBottom}>

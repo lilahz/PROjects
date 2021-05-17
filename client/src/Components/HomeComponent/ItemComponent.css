@@ -43,6 +43,27 @@
     height: 270px;
     background: #FFF6EB;
     border-radius: 0px 0px 8px 8px;
+    position: relative;
+}
+
+.Footer{
+    /* background-color: #262626; */
+    margin-left: 100px;
+    margin-right: 100px;
+    width: 150px;
+    height: 40px;
+    /* margin: 0 auto; */
+    /* padding: 10px; */
+    /* position: absolute; */
+    vertical-align: middle;
+    text-align: center;
+
+}
+
+.SocialIcon{
+    margin: 0 5px 0 5px;
+    width: 40px !important;
+    height: 40px !important;
 }
 
 .Transparent{
@@ -57,7 +78,6 @@
     height: 140px;
     border-radius: 50%;
     top: -80px;
-    
 }
 
 .Title{
@@ -76,6 +96,5 @@
     /* identical to box height */
 
     text-transform: capitalize;
-
     color: #262626;
 }

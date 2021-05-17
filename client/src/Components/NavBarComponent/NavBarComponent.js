@@ -1,35 +1,59 @@
-import React, { useContext } from 'react';
-import {Navbar, Nav} from 'react-bootstrap';
-
+import React, {Component , useContext } from 'react';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
 import './NavBarComponent.css';
 import { UserContext } from '../../UserContext';
+import logo from './logo.png';
+import { BrowserRouter as Router } from 'react-router-dom';
 
+class NavBarComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapse: false,
+        };
+        this.onClick = this.onClick.bind(this);
+    }
+  
+    onClick() {
+      this.setState({
+          collapse: !this.state.collapse,
+        });
+    }
 
-const NavBarComponent = () => {
-    const user = useContext(UserContext);
+    render() {
+        // const user = useContext(UserContext);
+        const noUser = <MDBNavbarNav left>
+                            <MDBNavItem> <MDBNavLink className="nav-link-signIn" to="/register">הירשם</MDBNavLink> </MDBNavItem>
+                            <MDBNavItem> <MDBNavLink className="nav-link-signUp" to="/login">התחבר</MDBNavLink> </MDBNavItem>
+                        </MDBNavbarNav>;
+        const userLoggedIn = <MDBNavbarNav left>
+                                <MDBNavItem  className="NavBarMenuItemLeft"> <MDBNavLink to="/logout">התנתק</MDBNavLink> </MDBNavItem>
+                             </MDBNavbarNav>;
 
-    const noUserLoggedIn = <Nav className="mr-auto">
-                                <Nav.Link className="mr-auto" href="/register">הירשם</Nav.Link>
-                                <Nav.Link className="ml-auto" href="/login">התחבר</Nav.Link>
-                                <Nav.Link className="mr-auto" href="/logout">התנתק</Nav.Link>
-                            </Nav>;
-    const userLoggedIn = <Nav className="mr-auto">
-                            <Nav.Link className="mr-auto" href="/logout">התנתק</Nav.Link>
-                          </Nav>;
+        const bgBlue = {backgroundColor: '#29325D'};
+        
     return (
-        <Navbar className="NavBar" variant="light" expand="lg" sticky="top">
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                    <Nav.Link href="/">דף הבית</Nav.Link>
-                    <Nav.Link href="/home/projects">פרוייקטים</Nav.Link>
-                    <Nav.Link href="/home/juniors">מתמחים</Nav.Link>
-                    <Nav.Link href="/home/about" style={{alignSelf: "right"}}>עלינו</Nav.Link>
-                </Nav>
-                {user.mail !== '' ? userLoggedIn : noUserLoggedIn}
-            </Navbar.Collapse>
-        </Navbar>
-    )
+          <header>
+            <MDBNavbar style={bgBlue} expand="md" scrolling fixed="top">
+              <MDBNavbarBrand>
+                    <img className="NavBarLogo" src={logo} alt=""/>
+              </MDBNavbarBrand>
+              <MDBNavbarToggler onClick={ this.onClick } />
+              <MDBCollapse isOpen = { this.state.collapse } navbar>
+                <MDBNavbarNav right>
+                    <MDBNavItem style={{ width: '45' }}> <MDBNavLink to="/">דף הבית</MDBNavLink> </MDBNavItem>
+                    <MDBNavItem> <MDBNavLink to="/home/projects">פרוייקטים</MDBNavLink> </MDBNavItem>
+                    <MDBNavItem> <MDBNavLink to="/home/juniors">מתמחים</MDBNavLink> </MDBNavItem>
+                    <MDBNavItem> <MDBNavLink to="/home/about">עלינו</MDBNavLink> </MDBNavItem>
+                </MDBNavbarNav>
+                <MDBNavbarNav left>
+                {/* {user.mail !== '' ? userLoggedIn : noUserLoggedIn} */}
+                {noUser}
+                </MDBNavbarNav>
+              </MDBCollapse>
+            </MDBNavbar>
+          </header>)
+    }
 }
 
 export default NavBarComponent;

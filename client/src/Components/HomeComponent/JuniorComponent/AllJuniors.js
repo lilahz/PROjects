@@ -12,7 +12,7 @@ class AllJuniors extends Component {
     constructor(props) {    
         super(props)
         this.state = {
-            background: "lightskyblue",
+            background: "#FFF6EB",
             allJuniorsArray: [],
             items: localStorage.getItem('items')?JSON.parse(localStorage.getItem('items')):[],
             juniorFieldFilter: localStorage.getItem('juniorFieldFilter')?JSON.parse(localStorage.getItem('juniorFieldFilter')):[]
