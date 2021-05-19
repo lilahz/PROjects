@@ -59,6 +59,7 @@ class JuniorComponent extends Component {
                                     ? <SocialIcon className="SocialIcon" url={this.props.cardGitHubURL} target="_blank" fgColor="white"/>
                                     : null;
         return (
+            <div>
             <MDBCol md="4">
                 <MDBCard className="Card">
                     <View hover zoom>
