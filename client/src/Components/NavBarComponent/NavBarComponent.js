@@ -23,18 +23,18 @@ class NavBarComponent extends Component {
     render() {
         // const user = useContext(UserContext);
         const noUser = <MDBNavbarNav left>
-                            <MDBNavItem> <MDBNavLink className="nav-link-signIn" to="/register">הירשם</MDBNavLink> </MDBNavItem>
-                            <MDBNavItem> <MDBNavLink className="nav-link-signUp" to="/login">התחבר</MDBNavLink> </MDBNavItem>
+                            <MDBNavItem> <MDBNavLink className="nav-link-signIn" to="/register">הרשמה</MDBNavLink> </MDBNavItem>
+                            <MDBNavItem> <MDBNavLink className="nav-link-signUp" to="/login">כניסה</MDBNavLink> </MDBNavItem>
                         </MDBNavbarNav>;
         const userLoggedIn = <MDBNavbarNav left>
                                 <MDBNavItem  className="NavBarMenuItemLeft"> <MDBNavLink to="/logout">התנתק</MDBNavLink> </MDBNavItem>
                              </MDBNavbarNav>;
 
-        const bgBlue = {backgroundColor: '#29325D'};
+        const bgPink = {backgroundColor: '#D31172'};
         
     return (
           <header>
-            <MDBNavbar style={bgBlue} expand="md" scrolling fixed="top">
+            <MDBNavbar style={bgPink} expand="md" scrolling fixed="top">
               <MDBNavbarBrand>
                     <img className="NavBarLogo" src={logo} alt=""/>
               </MDBNavbarBrand>
@@ -42,9 +42,9 @@ class NavBarComponent extends Component {
               <MDBCollapse isOpen = { this.state.collapse } navbar>
                 <MDBNavbarNav right>
                     <MDBNavItem style={{ width: '45' }}> <MDBNavLink to="/">דף הבית</MDBNavLink> </MDBNavItem>
-                    <MDBNavItem> <MDBNavLink to="/home/projects">פרוייקטים</MDBNavLink> </MDBNavItem>
-                    <MDBNavItem> <MDBNavLink to="/home/juniors">מתמחים</MDBNavLink> </MDBNavItem>
-                    <MDBNavItem> <MDBNavLink to="/home/about">עלינו</MDBNavLink> </MDBNavItem>
+                    <MDBNavItem> <MDBNavLink to="/home/projects">פרויקטים</MDBNavLink> </MDBNavItem>
+                    <MDBNavItem> <MDBNavLink to="/home/juniors">ג'וניורים</MDBNavLink> </MDBNavItem>
+                    <MDBNavItem> <MDBNavLink to="/home/about">מי אנחנו</MDBNavLink> </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav left>
                 {/* {user.mail !== '' ? userLoggedIn : noUserLoggedIn} */}
