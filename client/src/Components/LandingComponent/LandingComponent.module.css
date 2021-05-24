@@ -11,7 +11,7 @@
     position: absolute;
     width: 100%;
     height: 485px;
-    background-image: url(./images/Rectangle.png);
+    background-image: url(./images/LandingPageBackGroundWithAvatars.jpeg);
 }
 
 .LandingTopButtons {
@@ -23,8 +23,8 @@
 }
 
 .SignUpButton {
-    width: 292px;
-    height: 62px;
+    width: 252px;
+    height: 56px;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -39,9 +39,19 @@
     color: #D31172;
 }
 
+.SignUpButton a:hover {
+    color: #D31172;
+}
+
+.SignUpButton:hover {
+    font-size: 28px;
+    color: #D31172;
+}
+
 .LandingBottom {
     bottom: 0;
     height: 1100px;
+    /* background-image: url(./images/LandingPageProjects.png); */
 }
 
 .LandingBottomHeaderRight {
@@ -107,7 +117,7 @@
 
 .LandingBottomHeaderLeftButton {
     position: static;
-    width: 111px;
+    width: 121px;
     height: 25px;
     left: 0px;
     top: 1.5px;
@@ -127,6 +137,15 @@
     color: black;
 }
 
+.LandingBottomHeaderLeft a:hover {
+    font-size: 19px;
+    color: black;
+}
+
+.LandingBottomHeaderLeft:hover {
+    font-size: 28px;
+    color: black;
+}
 
 
 @media screen and (min-width: 1000px) and (min-height: 400px) {

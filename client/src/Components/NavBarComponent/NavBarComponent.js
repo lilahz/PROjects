@@ -33,26 +33,26 @@ class NavBarComponent extends Component {
         const bgPink = {backgroundColor: '#D31172'};
         
     return (
-          <header>
-            <MDBNavbar style={bgPink} expand="md" scrolling fixed="top">
-              <MDBNavbarBrand>
-                    <img className="NavBarLogo" src={logo} alt=""/>
-              </MDBNavbarBrand>
-              <MDBNavbarToggler onClick={ this.onClick } />
-              <MDBCollapse isOpen = { this.state.collapse } navbar>
-                <MDBNavbarNav right>
-                    <MDBNavItem style={{ width: '45' }}> <MDBNavLink to="/">דף הבית</MDBNavLink> </MDBNavItem>
-                    <MDBNavItem> <MDBNavLink to="/home/projects">פרויקטים</MDBNavLink> </MDBNavItem>
-                    <MDBNavItem> <MDBNavLink to="/home/juniors">ג'וניורים</MDBNavLink> </MDBNavItem>
-                    <MDBNavItem> <MDBNavLink to="/home/about">מי אנחנו</MDBNavLink> </MDBNavItem>
-                </MDBNavbarNav>
-                <MDBNavbarNav left>
-                {/* {user.mail !== '' ? userLoggedIn : noUserLoggedIn} */}
-                {noUser}
-                </MDBNavbarNav>
-              </MDBCollapse>
-            </MDBNavbar>
-          </header>)
+      <header>
+        <MDBNavbar style={bgPink} expand="md" scrolling fixed="top">
+          <MDBNavbarBrand>
+                <img className="NavBarLogo" src={logo} alt=""/>
+          </MDBNavbarBrand>
+          <MDBNavbarToggler onClick={ this.onClick } />
+          <MDBCollapse isOpen = { this.state.collapse } navbar>
+            <MDBNavbarNav right>
+                <MDBNavItem style={{ width: '45' }}> <MDBNavLink to="/">דף הבית</MDBNavLink> </MDBNavItem>
+                <MDBNavItem> <MDBNavLink to="/home/projects">פרויקטים</MDBNavLink> </MDBNavItem>
+                <MDBNavItem> <MDBNavLink to="/home/juniors">ג'וניורים</MDBNavLink> </MDBNavItem>
+                <MDBNavItem> <MDBNavLink to="/home/about">מי אנחנו</MDBNavLink> </MDBNavItem>
+            </MDBNavbarNav>
+            <MDBNavbarNav left>
+            {/* {user.mail !== '' ? userLoggedIn : noUserLoggedIn} */}
+            {noUser}
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBNavbar>
+      </header>)
     }
 }
 

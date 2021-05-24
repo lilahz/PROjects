@@ -27,12 +27,12 @@ class LandingComponent extends Component {
                     <div className={classes.LandingTopButtons}> 
                         <MDBRow>
                             <MDBCol>
-                                <button className={classes.SignUpButton} color="transparent" type="button">
+                                <button className={classes.SignUpButton} type="button">
                                     <a href="/register">הרשם כעמותה</a>
                                 </button>
                             </MDBCol>
                             <MDBCol>
-                                <button className={classes.SignUpButton} color="transparent" type="button">
+                                <button className={classes.SignUpButton} type="button">
                                     <a href="/register">הרשם כג'וניור</a>
                                 </button>
                             </MDBCol>

@@ -103,7 +103,6 @@ class JuniorComponent extends Component {
                     />
                     </MDBCard>
               </MDBCol>
-            </div>
         )
     }
 }
