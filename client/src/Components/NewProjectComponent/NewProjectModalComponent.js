@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Modal from "react-bootstrap/Modal";
-import {Alert, Button, FormGroup, FormFeedback, Input} from 'reactstrap';
+import {Alert} from 'reactstrap';
 import axios from 'axios';
+import NewProjectForm from './NewProjectForm';
+import { MDBBtn, MDBIcon } from 'mdbreact';
 
-import FilterComponent from '../HomeComponent/FilterComponent';
-import {field_array} from '../HomeComponent/data';
 import { UserContext } from '../../UserContext';
 
 
@@ -15,7 +15,7 @@ class NewProjectModalComponent extends Component {
     }
 
     getInitialState = () => ({
-        company_id: "5",
+        company_id: "1",
         field: [],
         status: "todo",
         description: "",
@@ -37,8 +37,8 @@ class NewProjectModalComponent extends Component {
     validate = () => {
         let errors = {};
         
-        if (this.state.description === '') errors.description = 'Please tell us about your project.';
-        if (this.state.field === [] || this.state.field === null || this.state.field.length === 0) errors.field = 'Please enter the field of work.';
+        if (this.state.description === '') errors.description = 'שדה זה הינו חובה.';
+        if (this.state.field === [] || this.state.field === null || this.state.field.length === 0) errors.field = 'שדה זה הינו חובה.';
         return errors;
     }
 
@@ -100,26 +100,14 @@ class NewProjectModalComponent extends Component {
                     <Modal.Title id="contained-modal-title-vcenter"> יצירת פרוייקט חדש </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <FormGroup>
-                        <Input id="company_name" type="text" value={this.state.company_name} 
-                                 placeholder={context.mail} disabled/>
-                    </FormGroup>
-                    <FormGroup>
-                        <FilterComponent    
-                                place_holder = "תחום עיסוק *"
-                                filter_array = {field_array}
-                                handle_on_change = {this.onChangefield} />
-                        <FormFeedback>{errors.description}</FormFeedback>
-                    </FormGroup>
-                    <FormGroup>
-                        <Input id="description" type="text" value={this.state.description} maxLength="200" onChange={this.handleChange}
-                                invalid={errors.description ? true : false} placeholder="ספר קצת על הפרוייקט *"/>
-                        <FormFeedback>{errors.description}</FormFeedback>
-                    </FormGroup>
+                    <NewProjectForm errors={errors} state={this.state} handleChange={this.handleChange} onChangefield={this.onChangefield} />
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={() => this.handleSubmit(this.props.toggle)}> Submit </Button>       
-                </Modal.Footer>
+                <div className="text-center">
+                    <MDBBtn outline color="secondary" onClick={() => this.handleSubmit(this.props.toggle)}>
+                           אישור
+                        <MDBIcon far icon="paper-plane" className="ml-1" />
+                    </MDBBtn>
+                </div>
                 {showAlert}
             </Modal>
             </div>

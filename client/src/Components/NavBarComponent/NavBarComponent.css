@@ -1,4 +1,70 @@
-.NavBar {
-    background-color: lightskyblue;
-    padding: 20px;
+.nav-link{
+    position: static;
+    width: auto;
+    height: 30px;
+    left: 202px;
+    top: 4px;
+
+    font-size: 16px;
+    line-height: 17px;
+    color: #FFF6EB;
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    margin: 0px 20px;
+}
+
+.nav-link:hover {
+   color: lightblue;
+ }
+
+.nav-link-signIn{
+    color: #29325D;
+    text-align: center;
+
+    width: 99px;
+    height: 32px;
+    line-height: 13px;
+
+    background: #FFF6EB;
+    border: 2px solid #FFF6EB;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+
+.nav-link-signUp{
+    text-align: center;
+
+    width: 99px;
+    height: 32px;
+    line-height: 13px;
+
+    background: #29325D;
+    border: 2px solid #FFF6EB;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+
+
+.NavBarLogo{
+    width: 86px;
+    height: 30px;
+    left: 96px;
+    top: 20px;
+    bottom: 20px;
+    margin: 0px 30px 0px 0px;
+}
+
+.navbar {
+    padding: 0 1rem;
 }

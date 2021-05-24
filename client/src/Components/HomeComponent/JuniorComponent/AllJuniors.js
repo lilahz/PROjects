@@ -12,7 +12,7 @@ class AllJuniors extends Component {
     constructor(props) {    
         super(props)
         this.state = {
-            background: "lightskyblue",
+            background: "#FFF6EB",
             allJuniorsArray: [],
             items: localStorage.getItem('items')?JSON.parse(localStorage.getItem('items')):[],
             juniorFieldFilter: localStorage.getItem('juniorFieldFilter')?JSON.parse(localStorage.getItem('juniorFieldFilter')):[]
@@ -52,7 +52,7 @@ class AllJuniors extends Component {
                         <JuniorsComponent juniors = {this.state.items}/> ; 
         return (
             <div className="AllJuniors">
-                <h1 className="JuniorListHeader">כל המתמחים</h1>
+                <h1 className="ListHeader">כל המתמחים</h1>
                 <div className="container">
                     <div className="row justify-content-center" style={{margin: '30px'}}>
                         <div className="col-4 text-center" style={{marginRight: '30px'}}>

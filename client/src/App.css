@@ -1,6 +1,7 @@
 .App {
-  background-color: #87cefa;
-  overflow-y: scroll;
+  background-color: #FFF6EB;
+  overflow: hidden;
+  font-family: "Alef Hebrew", sans-serif;
 }
 
 /* .App-logo {

@@ -111,7 +111,7 @@ class LoginModalComponent extends Component {
                     <Modal.Title id="contained-modal-title-vcenter"> התחבר </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <LoginForm errors={errors} state={this.state} handleChange={this.handleChange}/>
+                    <LoginForm errors={errors} state={this.state} handleChange={this.handleChange}/>
                 </Modal.Body>
                  <Modal.Footer>
                      {submit_button}

@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
-import {MDBBtn} from 'mdbreact';
-import { VscNewFile } from 'react-icons/vsc';
-import Tooltip from "@material-ui/core/Tooltip";
+import {MDBBtn, MDBCol, MDBRow} from 'mdbreact';
+import {ReactComponent as Logo} from "../logo.svg"
+import {ReactComponent as LandingImage} from './images/landingRightImage.svg';
 
 import ProjectCarouselComponent from '../HomeComponent/ProjectComponent/ProjectCarouselComponent';
 import NewProjectModalComponent from '../NewProjectComponent/NewProjectModalComponent'
 import classes from  './LandingComponent.module.css';
-import logo from './images/landing_image.png';
+import landingImage from './images/landing_image.png';
+import { VscNewFile } from 'react-icons/vsc';
+import Tooltip from "@material-ui/core/Tooltip";
 import { UserContext } from '../../UserContext';
 
 class LandingComponent extends Component {
@@ -29,30 +31,52 @@ class LandingComponent extends Component {
 
         return (
             <div>
-            <div className={classes.Landing}>
-                <div className={classes.LandingLeft}>
-                    <h1><b>PRO</b><span>jects</span></h1>
-                    <p>יצירת פלטפורמה המחברת בין זוטרים לעמותות ועסקים קטנים. הצעירים יצברו את הניסיון שחסר להם והעסקים יקבלו את השירותים להם הם זקוקים.</p>
-                </div>
+            <div className={classes.LandingTop}>
                 <div className={classes.LandingRight}>
-                    <img src={logo} alt=""/>
+                    <div className={classes.LandingRightLogo}>
+                        <Logo fill="white" />
+                    </div>
+                    <div className={classes.LandingRightButtons}>
+                        <MDBRow>
+                            <MDBCol>
+                                <MDBBtn className={classes.SignUpCompany} color="transparent white-text"
+                                    onClick = { this.toggle }>
+                                    הרשם כעמותה
+                                </MDBBtn>
+                            </MDBCol>
+                            <MDBCol>
+                                <MDBBtn className={classes.SignUpJunior} color="transparent white-text"
+                                    onClick = { this.toggle }>
+                                    הרשם כג'וניור
+                                </MDBBtn>
+                            </MDBCol>
+                        </MDBRow>
+                    </div>
+                </div>
+
+                <div className={classes.LandingLeft}>
+                    <LandingImage className={classes.LandingLeftImage}/>
                 </div>
             </div>
             <div className={classes.LandingBottom}>
-                <Tooltip title="See all Projects" position="top" >
+                <h1 dir="rtl">הפרוייקטים שלנו</h1>
+                {/* <Tooltip title="See all Projects" position="top" >
                 <MDBBtn className={classes.LandingBottomButton} href="/home/projects">הפרוייקטים שלנו</MDBBtn>
-                    {/* <h2>Our Open Projects</h2> */}
-                </Tooltip>
-                {context.mail !== null && context.type === 'company' ? <Tooltip title="New Project" position="right" >
-                    <Button 
-                        className={classes.NewProject}
+                </Tooltip> */}
+                {/* <Tooltip title="New Project" position="right" >
+                    <MDBBtn  className={classes.NewProject}
                         variant="outline-secondary"
                         onClick = { this.toggle }>
                         <VscNewFile size={16}/>
-                    </Button>
-                </Tooltip> : null}
+                    </MDBBtn>
+                </Tooltip> */}
+                <ProjectCarouselComponent/>
+                <NewProjectModalComponent className="Modal"
+                    isOpen={this.state.modal}
+                    toggle={this.toggle}/>
             </div>
-            {/* <Row>
+            </div>
+            /* <Row>
                 <Col xs={12} md={8} className="text-center"> 
                     <Tooltip title="See all Projects" placement="left-start" TransitionComponent={Fade} enterDelay={100} leaveDelay={100}>
                             <Button className="CarouselHeader"
@@ -75,13 +99,7 @@ class LandingComponent extends Component {
                         </Button>
                     </Tooltip>
                 </Col>
-            </Row> */}
-            <ProjectCarouselComponent/>
-            <NewProjectModalComponent className="Modal"
-                isOpen={this.state.modal} 
-                toggle={this.toggle}
-            />
-            </div>
+            </Row> */
         )
     }
 }

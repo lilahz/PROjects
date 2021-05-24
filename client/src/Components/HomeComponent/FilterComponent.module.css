@@ -5,11 +5,13 @@
     justify-content: center;
 } */
 
-.Filter {
+.FiltersDiv {
     /* TODO: make buttons look good on mobile display */
-    width: 10vw;
+    width: 100%;
+    min-width: 100%;
     /* align-self: 0%; */
-    padding-left: 15,
+    padding-left: 15;
+    background-color: '#FFF6EB'
 }
 
 @media screen and (min-width: 1000px) and (min-height: 400px) {
