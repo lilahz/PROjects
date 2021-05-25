@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import {Alert, Button, Spinner} from 'reactstrap';
 import axios from 'axios';
@@ -117,13 +118,15 @@ class RegisterCompanyModalComponent extends Component {
                 console.log("response status : " + response.status);
                 localStorage.setItem('currentUserEmail', data.email);
                 localStorage.setItem('currentUserType', this.props.type);
+                this.props.history.push('/');
             })
             .catch(error => {
-                this.setState({submit_error: error.response.data.error});
+                console.log(error);
+                // this.setState({submit_error: error.response.data.error});
                 this.setState({loading: false});
                 this.setState({visible_error : true});
-                console.log("response status : " , error.response.status); 
-                console.log("response error : " , error.response.data.error);
+                // console.log("response status : " , error.response.status); 
+                // console.log("response error : " , error.response.data.error);
             })
         })
     }
@@ -237,4 +240,4 @@ class RegisterCompanyModalComponent extends Component {
     }
 }
 
-export default RegisterCompanyModalComponent;
+export default withRouter(RegisterCompanyModalComponent);

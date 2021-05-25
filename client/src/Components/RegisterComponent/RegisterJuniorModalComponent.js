@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import {Button, Spinner, Alert} from 'reactstrap';
 import axios from 'axios';
@@ -130,6 +131,7 @@ class RegisterJuniorModalComponent extends Component {
                 console.log("response status : " + response.status);
                 localStorage.setItem('currentUserEmail', data.email);
                 localStorage.setItem('currentUserType', this.props.type);
+                this.props.history.push('/');
             })
             .catch(error => {
                 this.setState({submit_error: error.response.data.error});
@@ -256,4 +258,4 @@ class RegisterJuniorModalComponent extends Component {
     }
 }
 
-export default RegisterJuniorModalComponent;
+export default withRouter(RegisterJuniorModalComponent);
