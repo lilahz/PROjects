@@ -3,10 +3,9 @@ import axios from 'axios';
 
 import JuniorsComponent from './JuniorsComponent';
 import FilterComponent from '../FilterComponent';
-import './JuniorsComponent.css';
-import '../AllHomePage.css';
+import classes from  '../AllItems.module.css';
 import {field_array} from '../data';
-import emptyState from '../images/empty_state.png';
+import leftImage from './images/Designer_girl.png';
 
 class AllJuniors extends Component {
     constructor(props) {    
@@ -44,28 +43,24 @@ class AllJuniors extends Component {
         })
     }
 
-    render() {
-        const pageBody = (this.state.items.length === 0) ? 
-                        <div className="emptyState">
-                            <img src={emptyState} alt=""/>
-                        </div> :
-                        <JuniorsComponent juniors = {this.state.items}/> ; 
+    render() { 
         return (
-            <div className="AllJuniors">
-                <h1 className="ListHeader">כל המתמחים</h1>
-                <div className="container">
-                    <div className="row justify-content-center" style={{margin: '30px'}}>
-                        <div className="col-4 text-center" style={{marginRight: '30px'}}>
-                            <FilterComponent
-                                place_holder = "סנן לפי תחום"
-                                filter_array = {field_array}
-                                handle_on_change = {this.juniorFilterFieldOnChange}
-                                filter_value = {this.state.juniorFieldFilter} 
-                            />
-                        </div>
+        <div>
+            <div className={classes.AllItemsTop}>
+                <div className={classes.AllItemsHeaderRight}>
+                    <h1 dir="rtl">הג'וניורים שלנו</h1>
+                    <div className={classes.AllItemsHeaderUnderline}></div>
+                </div> 
+                <img src={leftImage} className={classes.AllItemsLeftImage} alt=""/>               
+                <div className={classes.Filters}>
+                <FilterComponent
+                    place_holder = "סנן לפי תחום"
+                    filter_array = {field_array}
+                    handle_on_change = {this.juniorFilterFieldOnChange}
+                    filter_value = {this.state.juniorFieldFilter} />
                 </div>
-                {pageBody}
             </div>
+            <JuniorsComponent juniors = {this.state.items}/>
         </div>
         )
     }

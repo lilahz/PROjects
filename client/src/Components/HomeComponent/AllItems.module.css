@@ -1,0 +1,72 @@
+.AllItemsTop .AllItemsBottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.AllItemsTop {
+    top: 15px;
+    position: absolute;
+    width: 100%;
+    height: 485px;
+}
+
+.AllItemsHeaderRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    
+    position: absolute;
+    width: 405px;
+    height: 50px;
+    left: 1066px;
+    top: 130px;
+}
+
+.AllItemsHeaderRight h1 {
+    position: static;
+    height: 42px;
+    left: 0px;
+    padding-right: 144px;
+    top: 0px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 42px;
+
+    color: #020A2F;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+
+.AllItemsHeaderUnderline {
+    position: static;
+    width: 100%;
+    height: 6px;
+    left: 0px;
+
+    background: #D31172;
+    border-radius: 10px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+
+.AllItemsLeftImage {
+    position: absolute;
+    width: 325px;
+    height: 325px;
+    left: 200px;
+    top: 120px;
+} 
+
+.Filters {
+    position: absolute;
+    align-items: right;
+    top: 250px;
+}

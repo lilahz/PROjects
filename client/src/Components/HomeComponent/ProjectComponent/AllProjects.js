@@ -5,17 +5,15 @@ import ProjectsComponent from './ProjectsComponent';
 import FilterComponent from '../FilterComponent';
 import {field_array} from '../data';
 import {status_array} from '../data';
-import './ProjectsComponent.css';
-import '../AllHomePage.css';
-import classes from './AllProjects.module.css';
-import emptyState from '../images/empty_state.png';
+import leftImage from './images/Projections-pana.png';
+import classes from  '../AllItems.module.css';
+import { MDBCol } from 'mdbreact';
 
 
 class AllProjects extends Component {
     constructor(props) {    
         super(props)
         this.state = {
-            background: "lightskyblue",
             allProjectsArray: [],
             currProjectsArray: localStorage.getItem('currProjectsArray')?JSON.parse(localStorage.getItem('currProjectsArray')):null,
             projectsStatusFilter: localStorage.getItem('projectsStatusFilter')?JSON.parse(localStorage.getItem('projectsStatusFilter')):null,
@@ -33,10 +31,6 @@ class AllProjects extends Component {
         let newProjectsStatusFilter = [];
         let newcurrProjectsArray = [];
         if(selected === null || selected.length === 0) {
-            // if(this.state.fieldFilter === null || this.state.fieldFilter.length === 0) 
-            //     newcurrProjectsArray = this.state.allProjectsArray ;
-            // else
-            //     newcurrProjectsArray = this.state.currProjectsArray ;
             newcurrProjectsArray = this.state.allProjectsArray ; 
             this.setState({projectsFieldFilter: null})
         }
@@ -63,10 +57,6 @@ class AllProjects extends Component {
         let newProjectsFieldFilter = [];
         let newcurrProjectsArray = [];
         if(selected === null || selected.length === 0) {
-            // if(this.state.statusFilter === null || this.state.statusFilter.length === 0) 
-            //     newcurrProjectsArray = this.state.allProjectsArray ; 
-            // else
-            //     newcurrProjectsArray = this.state.currProjectsArray ;
             newcurrProjectsArray = this.state.allProjectsArray ; 
             this.setState({projectsStatusFilter: null})
         }
@@ -89,41 +79,33 @@ class AllProjects extends Component {
     }
 
     render() {
-        const pageBody = (this.state.currProjectsArray === null) 
-                            ?<div className="emptyState">
-                                <img src={emptyState} alt=""/>
-                            </div> 
-                            :// (this.state.projectsStatusFilter === null && this.state.projectsFieldFilter === null) ?
-                            // <ProjectsComponent projects = {this.state.allProjectsArray}/> : 
-                            <ProjectsComponent projects = {this.state.currProjectsArray}/> ; 
         return (
-            <div className={classes.AllProjects}>
-                <h1 className="ListHeader">כל הפרוייקטים </h1>
-                <div className="container-fluid">
-                    <div className={classes.Filters} >
-                        <div className="col-4 text-center " style={{margin : 'auto 30px'}}>
+            <div>
+                <div className={classes.AllItemsTop}>
+                    <div className={classes.AllItemsHeaderRight}>
+                        <h1 dir="rtl">הפרויקטים שלנו</h1>
+                        <div className={classes.AllItemsHeaderUnderline}></div>
+                    </div> 
+                    <img src={leftImage} className={classes.AllItemsLeftImage} alt=""/>               
+                    <div className={classes.Filters}>
+                        <MDBCol>
                             <FilterComponent
-                                className={classes.Filter}
                                 place_holder = "סנן לפי תחום"
                                 filter_array = {field_array}
                                 handle_on_change = {this.projectFilterFieldOnChange}
                                 filter_value = {this.state.projectsFieldFilter}
                             />
-                        </div>
-                        <div className="col-4 text-center" style={{margin: '30px'}}>
                             <FilterComponent
                                 place_holder = "סנן לפי סטטוס"
                                 filter_array = {status_array}
                                 handle_on_change = {this.projectFilterStatusOnChange}
                                 filter_value = {this.state.projectsStatusFilter} 
                             />
-                        </div>
+                        </MDBCol>
                     </div>
-                    <div>
-                    {pageBody}
-                    </div>
+                </div>
+                <ProjectsComponent projects = {this.state.currProjectsArray}/>
             </div>
-        </div>
         )
     }
 }

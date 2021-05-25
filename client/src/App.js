@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.css';
 import { UserProvider } from './UserContext';
 import NavBarComponent from './Components/NavBarComponent/NavBarComponent';
+import FooterComponent from './Components/FooterComponent/FooterComponent';
 import LandingComponent from './Components/LandingComponent/LandingComponent';
 import RegisterComponent from './Components/RegisterComponent/RegisterComponent';
 import LoginComponent from './Components/LoginComponent/LoginComponent';
@@ -53,6 +54,7 @@ class App extends Component {
                 <AboutComponent />
               </Route>
             </div>
+            {/* <FooterComponent /> */}
           </div>
         </UserProvider>
       </BrowserRouter>

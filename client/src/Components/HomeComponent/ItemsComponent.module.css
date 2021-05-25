@@ -1,0 +1,11 @@
+.AllItems {
+    width: 100%;
+    top: 500px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: aqua;
+}
