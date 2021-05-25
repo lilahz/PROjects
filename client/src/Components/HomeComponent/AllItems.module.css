@@ -70,11 +70,3 @@
     align-items: right;
     top: 250px;
 }
-
-.AllItemsPageBody {
-    height: 1100px;
-    background-color: green;
-    top: 500px;
-    position: absolute;
-    /* background-image: url(./images/LandingPageItems.png); */
-}

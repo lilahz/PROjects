@@ -5,7 +5,7 @@ import classes from '../ItemsComponent.module.css';
 
 export default function ProjectsComponent(props) {
     return <div className={classes.AllItems}> 
-            <MDBRow >
+        <MDBRow >
                 {props.projects.map((project) => (
                     <ProjectComponent key={project.id} className="col-sm-4"
                         cardTitle={project.company_name} 
