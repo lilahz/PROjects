@@ -3,9 +3,11 @@ import { withRouter } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import { Button, Spinner, Alert } from 'reactstrap';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 
 import { UserContext } from '../../UserContext';
+import { authActions } from '../../actions';
 
 class LoginModalComponent extends Component {
     constructor(props) {
@@ -58,6 +60,7 @@ class LoginModalComponent extends Component {
                 this.setState({visible_error : false});
                 context.setMail(data.email);
                 context.setType(this.props.type);
+                this.props.login();
                 this.props.history.push('/');
             })
             .catch(error => {
@@ -123,5 +126,16 @@ class LoginModalComponent extends Component {
     }
 }
 
+const withRouterComponent = withRouter(LoginModalComponent);
 
-export default withRouter(LoginModalComponent);
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+}
+
+const mapAction = {
+    login: authActions.login
+}
+
+export default connect(mapStateToProps, mapAction)(withRouterComponent);

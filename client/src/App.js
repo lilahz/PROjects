@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import './App.css';
@@ -13,6 +14,7 @@ import LogoutComponent from './Components/LogoutComponent/LogoutComponent';
 import AllProjects from './Components/HomeComponent/ProjectComponent/AllProjects';
 import AllJuniors from './Components/HomeComponent/JuniorComponent/AllJuniors';
 import AboutComponent from './Components/AboutComponent/AboutComponent';
+import { authActions } from './actions';
 
 // axios.default.baseURL = 'https://projects-21.herokuapp.com';
 axios.default.baseURL = 'http://127.0.0.1:5000';
@@ -26,6 +28,8 @@ class App extends Component {
   }
 
   render() {
+    console.log("App props:", this.props);
+
     return (
       <BrowserRouter>
         <UserProvider>
@@ -62,4 +66,15 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    userAuth: state
+  };
+}
+
+const mapAction = {
+  login: authActions.login,
+  logout: authActions.logout
+}
+
+export default connect(mapStateToProps, mapAction)(App);

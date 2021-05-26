@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import Modal from "react-bootstrap/Modal";
 import {Alert, Button, Spinner} from 'reactstrap';
 import axios from 'axios';
 import {RegisterCompanyFormFirst, RegisterCompanyFormSecond} from './RegisterCompanyForm';
+import { authActions } from '../../actions';
 
 class RegisterCompanyModalComponent extends Component {
     constructor(props) {
@@ -118,6 +121,7 @@ class RegisterCompanyModalComponent extends Component {
                 console.log("response status : " + response.status);
                 localStorage.setItem('currentUserEmail', data.email);
                 localStorage.setItem('currentUserType', this.props.type);
+                this.props.login();
                 this.props.history.push('/');
             })
             .catch(error => {
@@ -240,4 +244,16 @@ class RegisterCompanyModalComponent extends Component {
     }
 }
 
-export default withRouter(RegisterCompanyModalComponent);
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+}
+
+const mapAction = {
+    login: authActions.login
+}
+
+const withRouterComponent = withRouter(RegisterCompanyModalComponent);
+
+export default connect(mapStateToProps, mapAction)(withRouterComponent);

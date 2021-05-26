@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import {Button, Spinner, Alert} from 'reactstrap';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import {RegisterJuniorFormFirst, RegisterJuniorFormSecond} from './RegisterJuniorForm';
+import { authActions } from '../../actions';
 
 class RegisterJuniorModalComponent extends Component {
     constructor(props) {
@@ -131,6 +133,7 @@ class RegisterJuniorModalComponent extends Component {
                 console.log("response status : " + response.status);
                 localStorage.setItem('currentUserEmail', data.email);
                 localStorage.setItem('currentUserType', this.props.type);
+                this.props.login();
                 this.props.history.push('/');
             })
             .catch(error => {
@@ -258,4 +261,16 @@ class RegisterJuniorModalComponent extends Component {
     }
 }
 
-export default withRouter(RegisterJuniorModalComponent);
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+}
+
+const mapAction = {
+    login: authActions.login
+}
+
+const withRouterComponent = withRouter(RegisterJuniorModalComponent);
+
+export default connect(mapStateToProps, mapAction)(withRouterComponent);

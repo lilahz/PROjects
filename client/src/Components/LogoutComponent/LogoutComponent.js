@@ -4,17 +4,20 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import { UserContext } from '../../UserContext';
+import { authActions } from '../../actions';
 import classes from './LogoutComponent.module.css';
 
 const LogoutComponent = (props) => {
     const [open, setOpen] = useState(false);
-    const user = useContext(UserContext);
-    console.log(user.type);
+    const user = localStorage.getItem('currentUserType');
+    console.log(user);
+    console.log(props);
 
     useEffect(() => {
-        const url = user.type === 'junior' ? '/api/auth/junior_logout' : '/api/auth/company_logout';
+        const url = user === 'junior' ? '/api/auth/junior_logout' : '/api/auth/company_logout';
 
         axios.post(url)
         .then(response => {
@@ -22,11 +25,10 @@ const LogoutComponent = (props) => {
             console.log("respone data", response.data);
 
             setOpen(true);
-            user.setMail('');
-            user.setType('');
 
             setTimeout(() => {
                 console.log("pushing to history");
+                props.logout();
                 props.history.push('/');
             }, 1500);
         })
@@ -55,4 +57,16 @@ const LogoutComponent = (props) => {
     )
 }
 
-export default withRouter(LogoutComponent);
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+}
+
+const mapAction = {
+    logout: authActions.logout
+}
+
+const withRouterComponent = withRouter(LogoutComponent);
+
+export default connect(mapStateToProps, mapAction)(withRouterComponent);
