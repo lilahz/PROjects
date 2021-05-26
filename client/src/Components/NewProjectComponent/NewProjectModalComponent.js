@@ -5,6 +5,8 @@ import axios from 'axios';
 import NewProjectForm from './NewProjectForm';
 import { MDBBtn, MDBIcon } from 'mdbreact';
 
+import { UserContext } from '../../UserContext';
+
 
 class NewProjectModalComponent extends Component {
     constructor(props) {
@@ -20,6 +22,8 @@ class NewProjectModalComponent extends Component {
         errors: {},
         visible : false
     });
+
+    static contextType = UserContext;
 
     onShowAlert = (toggle) =>{
         this.setState({visible:true},()=>{
@@ -80,6 +84,7 @@ class NewProjectModalComponent extends Component {
 
 
     render() {
+        const context = this.context;
         const { errors } = this.state;
         const showAlert = this.state.visible ? 
                     <Alert style={{textAlign:"center"}} variant="success">
@@ -99,7 +104,7 @@ class NewProjectModalComponent extends Component {
                 </Modal.Body>
                 <div className="text-center">
                     <MDBBtn outline color="secondary" onClick={() => this.handleSubmit(this.props.toggle)}>
-                           אישור   
+                           אישור
                         <MDBIcon far icon="paper-plane" className="ml-1" />
                     </MDBBtn>
                 </div>

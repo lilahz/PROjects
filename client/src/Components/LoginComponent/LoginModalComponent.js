@@ -3,14 +3,15 @@ import { withRouter } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import { Button, Spinner, Alert } from 'reactstrap';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 
 import { UserContext } from '../../UserContext';
+import { authActions } from '../../actions';
 
 class LoginModalComponent extends Component {
     constructor(props) {
         super(props);
-        this.user = UserContext;
         this.state = this.getInitialState();
     }
 
@@ -54,11 +55,12 @@ class LoginModalComponent extends Component {
             const context = this.context;
             axios.post(url, data)
             .then(response => {
-                console.log("respone data : " + response.data);
+                console.log("respone data : ", response.data);
                 this.setState({loading: false});
                 this.setState({visible_error : false});
                 context.setMail(data.email);
                 context.setType(this.props.type);
+                this.props.login();
                 this.props.history.push('/');
             })
             .catch(error => {
@@ -124,5 +126,16 @@ class LoginModalComponent extends Component {
     }
 }
 
+const withRouterComponent = withRouter(LoginModalComponent);
 
-export default withRouter(LoginModalComponent);
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+}
+
+const mapAction = {
+    login: authActions.login
+}
+
+export default connect(mapStateToProps, mapAction)(withRouterComponent);

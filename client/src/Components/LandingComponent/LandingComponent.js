@@ -6,11 +6,13 @@ import NewProjectModalComponent from '../NewProjectComponent/NewProjectModalComp
 import classes from  './LandingComponent.module.css';
 import { VscNewFile } from 'react-icons/vsc';
 import Tooltip from "@material-ui/core/Tooltip";
+import { UserContext } from '../../UserContext';
 
 class LandingComponent extends Component {
     state = {
         modal: false
     }
+    static contextType = UserContext;
 
     registerClickHandler = () => {
         console.log("registering");
@@ -21,10 +23,12 @@ class LandingComponent extends Component {
     }
 
     render () {
+        const context = this.context;
+
         return (
             <div>
             <div className={classes.LandingTop}>
-                    <div className={classes.LandingTopButtons}> 
+                    <div className={classes.LandingTopButtons}>
                         <MDBRow>
                             <MDBCol>
                                 <button className={classes.SignUpButton} type="button">
@@ -67,7 +71,7 @@ class LandingComponent extends Component {
                  */}
                 <ProjectCarouselComponent className={classes.LandingBottomCarousel}/>
                 <NewProjectModalComponent className="Modal"
-                    isOpen={this.state.modal} 
+                    isOpen={this.state.modal}
                     toggle={this.toggle}/>
             </div>
             </div>

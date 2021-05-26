@@ -4,6 +4,7 @@ import './NavBarComponent.css';
 import { UserContext } from '../../UserContext';
 import logo from './logo.png';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class NavBarComponent extends Component {
     constructor(props) {
@@ -21,7 +22,6 @@ class NavBarComponent extends Component {
     }
 
     render() {
-        // const user = useContext(UserContext);
         const noUser = <MDBNavbarNav left>
                             <MDBNavItem> <MDBNavLink className="nav-link-signIn" to="/register">הרשמה</MDBNavLink> </MDBNavItem>
                             <MDBNavItem> <MDBNavLink className="nav-link-signUp" to="/login">כניסה</MDBNavLink> </MDBNavItem>
@@ -47,8 +47,7 @@ class NavBarComponent extends Component {
                 <MDBNavItem> <MDBNavLink to="/home/about">מי אנחנו</MDBNavLink> </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav left>
-            {/* {user.mail !== '' ? userLoggedIn : noUserLoggedIn} */}
-            {noUser}
+            {this.props.userAuth.loggedIn ? userLoggedIn : noUser}
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
@@ -56,4 +55,10 @@ class NavBarComponent extends Component {
     }
 }
 
-export default NavBarComponent;
+const mapStateToProps = state => {
+  return {
+      userAuth: state
+  };
+}
+
+export default connect(mapStateToProps)(NavBarComponent);
