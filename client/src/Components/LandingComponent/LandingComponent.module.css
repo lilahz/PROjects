@@ -107,24 +107,37 @@
     align-items: center;
     
     position: absolute;
-    width: 300px;
-    height: 24px;
-    left: 40px;
-    top: 570px;
+    width: 350px;
+    height: 64px;
+    left: 10px;
+    top: 540px;
     padding-left: 50px;
 }
 
+.NewProjectButton {
+    position: absolute;
+    left: 30px;
+    top: -13px;
+}
+
+.NewProjectSVG:hover {
+    opacity: 70%;
+}
+
+.LandingBottomHeaderNewProjectButton {
+    position: absolute;
+    top: 0px;
+    border: transparent;
+    background-color: transparent;
+}
+
 .LandingBottomHeaderLeftButton {
-    position: static;
-    width: 121px;
+    position: absolute;
+    width: 141px;
     height: 25px;
-    left: 0px;
-    top: 1.5px;
-    
-    font-style: normal;
-    font-weight: normal;
-    font-size: 17px;
-    line-height: 21px;
+    left: 10px;    
+    font-size: 22px;
+    line-height: 22px;
     flex: none;
     flex-grow: 0;
     margin: 0px 24px;
@@ -132,19 +145,19 @@
     border: none;
 }
 
-.LandingBottomHeaderLeft a {
+.LandingBottomHeaderLeftButton a {
+    color: black;
+    
+}
+
+.LandingBottomHeaderLeftButton a:hover {
+    opacity: 50%;
     color: black;
 }
 
-.LandingBottomHeaderLeft a:hover {
-    font-size: 19px;
-    color: black;
-}
 
-.LandingBottomHeaderLeft:hover {
-    font-size: 28px;
-    color: black;
-}
+
+
 
 
 @media screen and (min-width: 1000px) and (min-height: 400px) {
