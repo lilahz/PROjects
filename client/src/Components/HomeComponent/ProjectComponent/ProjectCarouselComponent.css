@@ -1,0 +1,39 @@
+.carousel {
+    position: absolute;
+    /* height: 547px; */
+    top: 640px; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.carousel .carousel-indicators {
+    position: absolute;
+    bottom: -50px;
+}
+
+.carousel .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: #D31172;
+}
+
+.carousel .carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+}
+
+
+.carousel .carousel-control-prev {
+    left: 30px;
+    width: 30px;
+}
+
+.carousel .carousel-control-next {
+    right: 30px;
+    width: 30px;
+}
+

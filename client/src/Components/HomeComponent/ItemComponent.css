@@ -1,11 +1,3 @@
-.Carousel {
-    margin-top: auto;
-}
-
-.Modal {
-    overflow-y: scroll;
-} 
-
 .Card{
     height: 340px;
     width: 290px;
@@ -41,15 +33,18 @@
     flex-direction: row;
     width: 100%;
     height: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
     background: #FFFDFA;
 }
 
 .SocialIcon{
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 6px;
     width: 40px !important;
     height: 40px !important;
+}
+
+.SocialIcon:hover{
+    opacity: 70%;
 }
 
 .Transparent{

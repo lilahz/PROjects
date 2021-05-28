@@ -4,7 +4,6 @@ import JuniorComponent from './JuniorComponent';
 import classes from '../ItemsComponent.module.css';
 
 export default function JuniorsComponent(props) {
-
     return <div className={classes.AllItems}>
         <MDBRow >
             {props.juniors.map((junior) => (

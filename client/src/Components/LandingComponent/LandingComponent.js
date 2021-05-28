@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {MDBCol, MDBRow} from 'mdbreact';
 
-import ProjectCarouselComponent from '../HomeComponent/ProjectComponent/ProjectCarouselComponent';
+import ProjectCarouselComponent1 from '../HomeComponent/ProjectComponent/ProjectCarouselComponent1';
 import NewProjectModalComponent from '../NewProjectComponent/NewProjectModalComponent'
 import classes from  './LandingComponent.module.css';
-import { VscNewFile } from 'react-icons/vsc';
 import Tooltip from "@material-ui/core/Tooltip";
+import {ReactComponent as NewProject} from './images/NewProject.svg';
 import { UserContext } from '../../UserContext';
+
 
 class LandingComponent extends Component {
     state = {
@@ -56,49 +57,22 @@ class LandingComponent extends Component {
                             </button>
                         </MDBCol>
                         <MDBCol>
-                            <button className={classes.LandingBottomHeaderLeftButton} type="button" onClick={this.toggle}>
-                                פרויקט חדש
-                            </button>
+                            <div className={classes.NewProjectButton}>
+                                <button className={classes.LandingBottomHeaderNewProjectButton} type="button" onClick={this.toggle}>
+                                    <NewProject className={classes.NewProjectSVG}/>
+                                </button>
+                            </div>
                         </MDBCol>
                     </MDBRow>
                 </div>
-                {/*
-                    <MDBBtn  className={classes.NewProject}
-                        variant="outline-secondary"
-                        onClick = { this.toggle }>
-                        <VscNewFile size={16}/>
-                    </MDBBtn>
-                 */}
-                <ProjectCarouselComponent className={classes.LandingBottomCarousel}/>
-                <NewProjectModalComponent className="Modal"
-                    isOpen={this.state.modal}
+                <div className={classes.LandingBottomCarousel}>
+                    <ProjectCarouselComponent1 />
+                </div>
+                <NewProjectModalComponent
+                    isOpen={this.state.modal} 
                     toggle={this.toggle}/>
             </div>
             </div>
-            /* <Row>
-                <Col xs={12} md={8} className="text-center"> 
-                    <Tooltip title="See all Projects" placement="left-start" TransitionComponent={Fade} enterDelay={100} leaveDelay={100}>
-                            <Button className="CarouselHeader"
-                                href="/home/projects"
-                                variant="outline-secondary"
-                                style={{width: "500px"}}
-                                block>
-                                Our Open Projects
-                            </Button>
-                    </Tooltip>
-                </Col>
-                <Col xs={6} md={4}>
-                    <Tooltip title="Open New Project" placement="left-start" TransitionComponent={Fade} enterDelay={100} leaveDelay={100}>
-                        <Button className="CarouselHeaderButton"
-                            variant="outline-secondary"
-                            style={{width: "50px"}}
-                            block
-                            onClick = { this.toggle }>
-                            <VscNewFile size={30}/>
-                        </Button>
-                    </Tooltip>
-                </Col>
-            </Row> */
         )
     }
 }
