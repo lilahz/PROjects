@@ -21,6 +21,10 @@ class LandingComponent extends Component {
     }
 
     toggle = () => {
+        if (!this.props.userAuth.loggedIn && localStorage.getItem('currentUserType') !== 'company') {
+            alert("רק חברות רשומות יכולות להוסיף פרויקטים חדשים");
+            return;
+        }
         this.setState({modal: !this.state.modal});
     }
 
@@ -84,5 +88,5 @@ const mapStateToProps = state => {
         userAuth: state
     };
   }
-  
+
 export default connect(mapStateToProps)(LandingComponent);
