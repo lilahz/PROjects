@@ -16,7 +16,7 @@ class NewProjectModalComponent extends Component {
     }
 
     getInitialState = () => ({
-        company_id: "1",
+        company_id: localStorage.getItem('id'),
         field: [],
         status: "todo",
         description: "",
