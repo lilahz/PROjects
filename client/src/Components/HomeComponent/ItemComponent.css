@@ -7,12 +7,17 @@
     overflow: hidden;
 }
 
+.Field {
+    margin: 8px 6px 0px 0px;
+    width: auto;
+}
+
 .Fields{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    width: 284px;
+    width: 50%;
     height: 104px;
 }
 

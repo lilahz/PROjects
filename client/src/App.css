@@ -1,8 +1,8 @@
 .App {
   background-color: #FFF6EB;
-  /* background-color: white; */
   overflow: hidden;
-  font-family: "Alef Hebrew", sans-serif;
+  font-family: Assistant;
+  /* font-family: "Alef Hebrew", sans-serif; */
 }
 
 /* .App-logo {
