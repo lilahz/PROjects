@@ -45,7 +45,7 @@ class ProjectComponent extends Component {
             ? <SocialIcon className="SocialIcon" url={this.props.modalInstagramURL} target="_blank" fgColor="white"/>
             : null;
         return (
-            <div >
+            <MDBCol md="4">
                 <MDBCol className="Item">
                     <MDBCard className="Card">
                         <MDBCardBody className="Body">
@@ -83,7 +83,7 @@ class ProjectComponent extends Component {
                         modalInstagramURL={instagramURL_button}
                     />
                 </MDBCol>
-            </div>
+            </MDBCol>
         )
     }
 }
