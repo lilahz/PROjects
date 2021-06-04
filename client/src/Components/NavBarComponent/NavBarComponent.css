@@ -20,6 +20,7 @@
    color: lightblue;
  }
 
+
 .nav-link-signIn{
     color: #D31172;
     text-align: center;
@@ -55,6 +56,23 @@
     margin: 0px 10px;
 }
 
+.nav-link-logOut {
+    color: #D31172;
+    text-align: center;
+
+    width: 99px;
+    height: 32px;
+    line-height: 13px;
+
+    background: #FFF6EB;
+    border: 2px solid #FFF6EB;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
 
 .NavBarLogo{
     width: 86px;

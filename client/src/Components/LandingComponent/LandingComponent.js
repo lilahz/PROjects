@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import {MDBCol, MDBRow} from 'mdbreact';
 
 import ProjectCarouselComponent1 from '../HomeComponent/ProjectComponent/ProjectCarouselComponent1';
@@ -34,6 +34,7 @@ class LandingComponent extends Component {
         return (
             <div>
             <div className={classes.LandingTop}>
+                {this.props.userAuth.loggedIn ? null :
                     <div className={classes.LandingTopButtons}>
                         <MDBRow>
                             <MDBCol>
@@ -47,7 +48,7 @@ class LandingComponent extends Component {
                                 </button>
                             </MDBCol>
                         </MDBRow>
-                    </div>  
+                    </div>}
             </div>
             <div className={classes.LandingBottom}>
                 <div className={classes.LandingBottomHeaderRight}>

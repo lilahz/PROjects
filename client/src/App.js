@@ -16,8 +16,7 @@ import AllJuniors from './Components/HomeComponent/JuniorComponent/AllJuniors';
 import AboutComponent from './Components/AboutComponent/AboutComponent';
 import { authActions } from './actions';
 
-// axios.default.baseURL = 'https://projects-21.herokuapp.com';
-axios.default.baseURL = 'http://127.0.0.1:5000';
+axios.default.baseURL = 'https://projects-21.herokuapp.com';
 
 class App extends Component {
   constructor(props) {

@@ -49,7 +49,7 @@ const AboutComponent = () => {
                     <TeamComponent className="col-sm-4"
                                 cardImage={picAyelet}
                                 cardTitle="איילת בירן" 
-                                cardText="סטודנט באוניברסיטת בן גוריון, עובת בפלייטיקה"
+                                cardText="סטודנט באוניברסיטת בן גוריון, עובדת בקונויזיט"
                                 cardEmail="ayeletbiran3@gmail.com"
                                 cardFB="https://www.facebook.com/ayelet.biran"
                                 cardLD="https://www.linkedin.com/in/ayelet-biran-46b4ab147/" />

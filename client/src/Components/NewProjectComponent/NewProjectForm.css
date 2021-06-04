@@ -1,31 +1,30 @@
-/* .Form {
-    margin-left: 32vw;
-    margin-right: 32vw;
-}
-
-.Buttons {
+.form-group {
     display: flex;
     flex-direction: row;
-    align-content: stretch;
-    justify-content: center;
-    margin: auto;
-    padding: 20px;
-    min-width: 50%;
-    min-height: 25%;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 6px 8px;
+
+    position: static;
+    max-width: 252px !important;
+    height: 36px;
+    left: 0px;
+    top: 0px;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 10px 0px;
 }
 
-.Button {
-    display: block;
-    margin: 28px;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 12em;
-    background-color: transparent;
-} */
+.form-control {
+    background-color: green;
+}
 
-.FormInput{
-    width: 100%;
-    background: #FFF6EB;
+
+.fieldHeader {
+    padding: 6px 8px;
+    font-size: 22px;
+    padding-top: 20px;
 }

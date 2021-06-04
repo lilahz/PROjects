@@ -108,13 +108,11 @@ class RegisterJuniorModalComponent extends Component {
 
     _handleReaderLoaded = (readerEvt) => {
         let binaryString = btoa(readerEvt.target.result);
-        // console.log("binary string : " + binaryString);
         this.setState({profile_picture: binaryString});
     }
 
     handleChangePicture = selected => {
         let file = selected.target.files[0];
-        // console.log("selected : " , file);
         if(file) {
             const reader = new FileReader();
             reader.onload = this._handleReaderLoaded.bind(this);

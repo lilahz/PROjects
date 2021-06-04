@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import Tooltip from "@material-ui/core/Tooltip";
 import {IoPersonAdd} from 'react-icons/io5';
 import Modal from "react-bootstrap/Modal";
-import '../Modal.css';
+import '../../Modal.css';
 
 
 class ProjectModalComponent extends Component {
 
     render() {
+        const fields = this.props.modalField.length <= 4
+                       ? this.props.modalField
+                       : <div class="row">
+                           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" className="modalFields">
+                                {this.props.modalField.splice(0,4)} 
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" className="modalFields">
+                                {this.props.modalField.splice(4)} 
+                           </div>
+                        </div>;
 
         return (
             <Modal show={this.props.isOpen} onHide={this.props.toggle} key={this.props.key}
@@ -23,7 +33,7 @@ class ProjectModalComponent extends Component {
                 <Modal.Body className="modalBody">
                     <div>
                         <h3 className="modalFieldTitle">מחפשים עזרה עם</h3>
-                        {this.props.modalField}<br />
+                        {fields}<br />
                     </div>
                     <div>
                         <h3 className="modalDescTitle">קצת עלינו</h3>
