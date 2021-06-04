@@ -122,7 +122,7 @@ class AllJuniors extends Component {
                 </div> 
                 <img src={leftImage} className={classes.AllItemsLeftImage} alt=""/> 
                 <div className={classes.AllItemsFilter}>
-                    <h3 className={classes.AllItemsFilterHeader}>בחר תחום</h3>
+                    <h3 className={classes.AllItemsFilterHeader}>בחר תחומי עיסוק</h3>
                     {filter_buttons}              
                 </div>
             </div>
