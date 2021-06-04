@@ -4,14 +4,13 @@
     right: 100px;
     position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
 .carousel .carousel-item {
     width: 90%;
     top: 20px;
-    right: 100px;
     position: absolute;
     display: flex;
     justify-content: center;

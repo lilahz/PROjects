@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBCardFooter, Row, MDBFooter} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBCardFooter, Row, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import JuniorModalComponent from './JuniorModalComponent';
 import {field_array} from '../data';
@@ -57,17 +57,17 @@ class JuniorComponent extends Component {
             ? <SocialIcon className="SocialIcon" url={this.props.cardGitHubURL} target="_blank" fgColor="white"/>
             : null;
         return (
-            <div>
+            <MDBCol md="4">
                 <MDBCol className="Item">
                     <MDBCard className="Card">
                         <MDBCardBody className="Body">
-                        <View  hover zoom className="Picture"  >
+                            <View  hover zoom className="Picture"  >
                                 <img style={{width:"100%",height:"100%"}}
                                     src={this.props.cardImage 
                                         ? `data:image/jpeg;base64,${this.props.cardImage}`
                                         : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
                                     waves >
-                                    </img>
+                                </img>
                                 <Mask className="InnerBody">
                                     <MDBBtn onClick = { this.toggle }>קצת פרטים</MDBBtn>
                                 </Mask>
@@ -97,8 +97,8 @@ class JuniorComponent extends Component {
                         modalLinkedInURL={linkedInURL_button}
                         modalGitHubURL={gitHubURL_button}
                     />
+                    </MDBCol>
                 </MDBCol>
-            </div>
         )
     }
 }
