@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import {MDBCol, MDBRow} from 'mdbreact';
 
 import ProjectCarouselComponent1 from '../HomeComponent/ProjectComponent/ProjectCarouselComponent1';
@@ -7,6 +7,7 @@ import classes from  './LandingComponent.module.css';
 import Tooltip from "@material-ui/core/Tooltip";
 import {ReactComponent as NewProject} from './images/NewProject.svg';
 import { UserContext } from '../../UserContext';
+import { connect } from 'react-redux';
 
 
 class LandingComponent extends Component {
@@ -29,6 +30,7 @@ class LandingComponent extends Component {
         return (
             <div>
             <div className={classes.LandingTop}>
+                {this.props.userAuth.loggedIn ? null :
                     <div className={classes.LandingTopButtons}>
                         <MDBRow>
                             <MDBCol>
@@ -42,7 +44,7 @@ class LandingComponent extends Component {
                                 </button>
                             </MDBCol>
                         </MDBRow>
-                    </div>  
+                    </div>}
             </div>
             <div className={classes.LandingBottom}>
                 <div className={classes.LandingBottomHeaderRight}>
@@ -77,4 +79,10 @@ class LandingComponent extends Component {
     }
 }
 
-export default LandingComponent;
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+  }
+  
+export default connect(mapStateToProps)(LandingComponent);

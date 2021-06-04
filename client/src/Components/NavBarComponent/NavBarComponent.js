@@ -27,7 +27,7 @@ class NavBarComponent extends Component {
                             <MDBNavItem> <MDBNavLink className="nav-link-signUp" to="/login">כניסה</MDBNavLink> </MDBNavItem>
                         </MDBNavbarNav>;
         const userLoggedIn = <MDBNavbarNav left>
-                                <MDBNavItem  className="NavBarMenuItemLeft"> <MDBNavLink to="/logout">התנתק</MDBNavLink> </MDBNavItem>
+                                <MDBNavItem> <MDBNavLink className="nav-link-logOut" to="/logout">התנתק</MDBNavLink> </MDBNavItem>
                              </MDBNavbarNav>;
 
         const bgPink = {backgroundColor: '#D31172'};

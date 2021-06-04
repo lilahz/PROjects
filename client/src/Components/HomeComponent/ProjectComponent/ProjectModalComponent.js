@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Tooltip from "@material-ui/core/Tooltip";
 import {IoPersonAdd} from 'react-icons/io5';
 import Modal from "react-bootstrap/Modal";
-import {MDBCol} from 'mdbreact';
-import '../Modal.css';
+import '../../Modal.css';
 
 
 class ProjectModalComponent extends Component {

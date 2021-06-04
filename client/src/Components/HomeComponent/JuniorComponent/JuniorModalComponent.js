@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import {Row} from 'react-bootstrap';
 import Modal from "react-bootstrap/Modal";
-import { SocialIcon } from 'react-social-icons';
-import '../Modal.css';
-
+import '../../Modal.css';
 
 class JuniorModalComponent extends Component {
 
