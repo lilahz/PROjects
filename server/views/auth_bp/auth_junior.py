@@ -32,7 +32,7 @@ def junior_register():
         else: 
             login_user(new_junior)  # Log in with the newly created user with remember me off
         
-        return jsonify({'message': 'success'}), 200
+        return jsonify({'message': 'success', 'id': new_junior.id}), 200
     else:
         return jsonify({'error': 'already_exists'}), 403
 
@@ -49,7 +49,7 @@ def junior_login():
             login_user(junior, remember=True) # Log in with the existing user with remember me on
         else: 
             login_user(junior) # Log in with the existing user with remember me off
-        return jsonify({'message': 'success'})
+        return jsonify({'message': 'success', 'id': junior.id})
     elif not junior:
         return jsonify({'error': 'no_exists'}), 403
     else:

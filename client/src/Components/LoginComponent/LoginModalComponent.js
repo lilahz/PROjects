@@ -52,14 +52,14 @@ class LoginModalComponent extends Component {
     submitForm = (data) => {
         this.setState({loading:true}, () => {
             const url = this.props.url;
-            const context = this.context;
             axios.post(url, data)
             .then(response => {
                 console.log("respone data : ", response.data);
                 this.setState({loading: false});
                 this.setState({visible_error : false});
-                context.setMail(data.email);
-                context.setType(this.props.type);
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('email', data.email);
+                localStorage.setItem('currentUserType', this.props.type);
                 this.props.login();
                 this.props.history.push('/');
             })

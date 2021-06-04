@@ -7,6 +7,7 @@ import classes from  './LandingComponent.module.css';
 import Tooltip from "@material-ui/core/Tooltip";
 import {ReactComponent as NewProject} from './images/NewProject.svg';
 import { UserContext } from '../../UserContext';
+import { connect } from 'react-redux';
 
 
 class LandingComponent extends Component {
@@ -20,6 +21,10 @@ class LandingComponent extends Component {
     }
 
     toggle = () => {
+        if (!this.props.userAuth.loggedIn && localStorage.getItem('currentUserType') !== 'company') {
+            alert("רק חברות רשומות יכולות להוסיף פרויקטים חדשים");
+            return;
+        }
         this.setState({modal: !this.state.modal});
     }
 
@@ -77,4 +82,10 @@ class LandingComponent extends Component {
     }
 }
 
-export default LandingComponent;
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+  }
+
+export default connect(mapStateToProps)(LandingComponent);
