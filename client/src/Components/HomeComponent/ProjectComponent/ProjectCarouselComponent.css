@@ -1,29 +1,21 @@
 .carousel {
-    top: 660px; 
-    /* width: 100%; */
-    /* position: relative; */
-    display: table;
-    width: 100%;
-    /* display: flex;
-    flex-direction: column;
+    width: 90%;
+    top: 660px;
+    right: 100px;
+    position: absolute;
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; */
-    /* margin: 0 auto; */
 }
 
 .carousel .carousel-item {
-    width: 93%;
-    /* position: absolute;
+    width: 90%;
+    top: 20px;
+    right: 100px;
+    position: absolute;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    text-align: center; 
-    margin: 0 auto; */
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
 }
 
 .carousel .carousel-indicators {
