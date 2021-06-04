@@ -5,10 +5,6 @@ from server.models.Company import Company
 from server.models import login_manager
 
 def company_register():
-    # Bypass if user is logged in
-    if current_user.is_authenticated:
-        return jsonify({'error' : 'already_login'}), 401
-    
     data = request.json
     email = data.get('email')
     company = Company.query.filter_by(email=email).first() # check if this email is already registered
@@ -40,11 +36,6 @@ def company_register():
 
     
 def company_login():
-
-    # Bypass if user is logged in
-    if current_user.is_authenticated:
-        return jsonify({'error' : 'already_login'}), 401
-
     data = request.json
     email = data.get('email')
     password = data.get('password')
@@ -83,7 +74,7 @@ def load_user(user_id):  # Checks if user is logged-in on every page load.
 
 @login_manager.unauthorized_handler
 def unauthorized(): # Redirect unauthorized users to Login page.
-    return jsonify({'error': 'must_login'}), 403 
+    return jsonify({'error': 'must_login'}), 403
 
 
 @login_required 

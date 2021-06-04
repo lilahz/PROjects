@@ -2,6 +2,7 @@
     background-color: #FFF6EB;
     width: 420px;
     height: auto;
+    font-family: Assistant;
 }
 
 .modal .modalTitleTop {
@@ -78,6 +79,12 @@
     margin: 12px 0px;
 }
 
+.modal .modalFields {
+    width: 200px;
+    /* background-color: green; */
+}
+
+
 .modal .modalDescTitle {
     position: static;
     width: auto;
@@ -114,16 +121,14 @@
 }
 
 .modal .modalFooter {
-    /* background-color: green; */
     display: flex;
     flex-direction: column;
-    /* justify-content: left; */
     align-items: center;
     padding: 0px;
 
     position: absolute;
     width: 70px;
-    height: 208px;
+    height: auto;
     left: 10px;
     bottom: 15px;
 }

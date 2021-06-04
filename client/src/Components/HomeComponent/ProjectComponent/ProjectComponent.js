@@ -15,7 +15,7 @@ class ProjectComponent extends Component {
     }
 
     ValueOption = (field) => (
-        <div>
+        <div className="Field">
             {field.icon}
             {field.label}
         </div >
@@ -28,9 +28,10 @@ class ProjectComponent extends Component {
     );
     
     fieldArrayIcon = (projectFields) => (
-        projectFields.slice(0,3).map((field) => (
+        projectFields.map((field) => (
                 (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
     );
+
 
     render () {
         const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.modalEmail + "?subject=Bla"}  bgColor="#CD3636" fgColor="white"/>
@@ -59,7 +60,7 @@ class ProjectComponent extends Component {
                         <MDBCardBody className="Body">
                             <div className="InnerBody">
                                 <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
-                                <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>  
+                                <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField).slice(0,3)}</MDBCardText>  
                             </div>
                         </MDBCardBody>
                         <MDBFooter className="Footer">

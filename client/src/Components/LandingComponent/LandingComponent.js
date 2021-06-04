@@ -6,11 +6,14 @@ import NewProjectModalComponent from '../NewProjectComponent/NewProjectModalComp
 import classes from  './LandingComponent.module.css';
 import Tooltip from "@material-ui/core/Tooltip";
 import {ReactComponent as NewProject} from './images/NewProject.svg';
+import { UserContext } from '../../UserContext';
+
 
 class LandingComponent extends Component {
     state = {
         modal: false
     }
+    static contextType = UserContext;
 
     registerClickHandler = () => {
         console.log("registering");
@@ -21,11 +24,12 @@ class LandingComponent extends Component {
     }
 
     render () {
-        
+        const context = this.context;
+
         return (
             <div>
             <div className={classes.LandingTop}>
-                    <div className={classes.LandingTopButtons}> 
+                    <div className={classes.LandingTopButtons}>
                         <MDBRow>
                             <MDBCol>
                                 <button className={classes.SignUpButton} type="button">

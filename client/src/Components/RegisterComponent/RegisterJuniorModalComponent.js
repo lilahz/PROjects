@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
 import {Button, Spinner, Alert} from 'reactstrap';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import {RegisterJuniorFormFirst, RegisterJuniorFormSecond} from './RegisterJuniorForm';
+import { authActions } from '../../actions';
 
 class RegisterJuniorModalComponent extends Component {
     constructor(props) {
@@ -105,13 +108,11 @@ class RegisterJuniorModalComponent extends Component {
 
     _handleReaderLoaded = (readerEvt) => {
         let binaryString = btoa(readerEvt.target.result);
-        // console.log("binary string : " + binaryString);
         this.setState({profile_picture: binaryString});
     }
 
     handleChangePicture = selected => {
         let file = selected.target.files[0];
-        // console.log("selected : " , file);
         if(file) {
             const reader = new FileReader();
             reader.onload = this._handleReaderLoaded.bind(this);
@@ -130,6 +131,8 @@ class RegisterJuniorModalComponent extends Component {
                 console.log("response status : " + response.status);
                 localStorage.setItem('currentUserEmail', data.email);
                 localStorage.setItem('currentUserType', this.props.type);
+                this.props.login();
+                this.props.history.push('/');
             })
             .catch(error => {
                 this.setState({submit_error: error.response.data.error});
@@ -256,4 +259,16 @@ class RegisterJuniorModalComponent extends Component {
     }
 }
 
-export default RegisterJuniorModalComponent;
+const mapStateToProps = state => {
+    return {
+        userAuth: state
+    };
+}
+
+const mapAction = {
+    login: authActions.login
+}
+
+const withRouterComponent = withRouter(RegisterJuniorModalComponent);
+
+export default connect(mapStateToProps, mapAction)(withRouterComponent);
