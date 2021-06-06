@@ -222,38 +222,39 @@ class RegisterJuniorModalComponent extends Component {
                     {error_message}</Alert> : null;        
 
         return (
-            <div> {this.state.currentModal === 0 ? 
-            <Modal show={this.props.isOpen} onHide={this.props.toggle}
-                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniorModal">
-                <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
-                </Modal.Header>
-                <Modal.Body> 
-                    <RegisterJuniorFormFirst errors={errors} state={this.state} handleChange={this.handleChange}/>
-                </Modal.Body>
-                <Modal.Footer> 
-                    <Button variant="primary" onClick={this.handleNext}> הבא </Button>
-                </Modal.Footer>
-            </Modal> 
-            :
-            this.state.currentModal === 1 ? 
-            <Modal show={this.props.isOpen} onHide={this.props.toggle}
-                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniorModal">
-                <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
-                </Modal.Header>
-                <Modal.Body> 
-                    <RegisterJuniorFormSecond errors={errors} state={this.state} handleChange={this.handleChange} 
-                        handleChangeField={this.handleChangeField} handleChangeWebsite={this.handleChangeWebsite}
-                        handleRemoveClick={this.handleRemoveClick} handleAddClick={this.handleAddClick} handleChangePicture={this.handleChangePicture}/>
-                </Modal.Body>
-                <Modal.Footer> 
-                    <Button variant="primary" onClick={this.handlePrev}> קודם </Button>    
-                    {submit_button}               
-                </Modal.Footer>
-                {showAlertSuccess}
-                {showAlertError}
-            </Modal> : null }
+            <div>
+                {this.state.currentModal === 0 
+                    ? <Modal show={this.props.isOpen} onHide={this.props.toggle}
+                        aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniorModal">
+                        <Modal.Header>
+                            <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body> 
+                            <RegisterJuniorFormFirst errors={errors} state={this.state} handleChange={this.handleChange}/>
+                        </Modal.Body>
+                        <Modal.Footer> 
+                            <Button variant="primary" onClick={this.handleNext}> הבא </Button>
+                        </Modal.Footer>
+                    </Modal> 
+                    : this.state.currentModal === 1 
+                        ? <Modal show={this.props.isOpen} onHide={this.props.toggle}
+                            aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniorModal">
+                            <Modal.Header>
+                                <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body> 
+                                <RegisterJuniorFormSecond errors={errors} state={this.state} handleChange={this.handleChange} 
+                                    handleChangeField={this.handleChangeField} handleChangeWebsite={this.handleChangeWebsite}
+                                    handleRemoveClick={this.handleRemoveClick} handleAddClick={this.handleAddClick} handleChangePicture={this.handleChangePicture}/>
+                            </Modal.Body>
+                            <Modal.Footer> 
+                                <Button variant="primary" onClick={this.handlePrev}> קודם </Button>    
+                                {submit_button}               
+                            </Modal.Footer>
+                            {showAlertSuccess}
+                            {showAlertError}
+                        </Modal> 
+                        : null }
             </div>
         );
     }

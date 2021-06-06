@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from 'axios';
 import { connect } from 'react-redux';
-
-import { UserContext } from '../../UserContext';
 import { authActions } from '../../actions';
 import classes from './LogoutComponent.module.css';
 
