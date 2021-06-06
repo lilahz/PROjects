@@ -4,8 +4,7 @@
     height: 30px;
     left: 202px;
     top: 4px;
-
-    font-size: 16px;
+    font-size: 17px;
     line-height: 17px;
     color: #FFF6EB;
 
@@ -17,7 +16,7 @@
 }
 
 .nav-link:hover {
-   color: lightblue;
+   color: #f4c2d8;
  }
 
 
@@ -85,4 +84,5 @@
 
 .navbar {
     padding: 0 1rem;
+    font-family: Assistant;
 }

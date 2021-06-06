@@ -7,6 +7,7 @@ import {Alert, Button, Spinner} from 'reactstrap';
 import axios from 'axios';
 import {RegisterCompanyFormFirst, RegisterCompanyFormSecond} from './RegisterCompanyForm';
 import { authActions } from '../../actions';
+import './RegisterJuniorModal.css';
 
 class RegisterCompanyModalComponent extends Component {
     constructor(props) {
@@ -23,7 +24,13 @@ class RegisterCompanyModalComponent extends Component {
         website: [{label: 'אתר החברה', url: ''}],
         about_me: '',
         profile_picture: '',
-        errors: {},
+        companyNameReady: false,
+        userNameReady: false,
+        passwordReady: false,
+        repasswordReady: false,
+        aboutReady: false,
+        formReadyFirst: false,
+        formReadySecond: false,
         submit_error: '',
         visible_success: false,
         visible_error: false,
@@ -40,27 +47,6 @@ class RegisterCompanyModalComponent extends Component {
         });
     }
 
-    validateFirst () {
-        const errors = {};
-        var emailPattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-        
-        if (this.state.company_name === '') errors.company_name = 'Please enter your company name.';
-        if(!emailPattern.test(this.state.email)) errors.email = 'Invalid email address.';
-        if (this.state.password === '') errors.password = 'Please enter a password.';
-        if(this.state.password !== this.state.confirm_password) errors.confirm_password = 'Passwords do not match.';
-
-        return errors;
-    }
-
-    validateSecond = () => {
-        // var linkPattern = new RegExp(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-        let errors = {};
-        
-        // if(!linkPattern.test(this.state.website)) errors.website = 'Invalid URL.';
-        if (this.state.about_me === '') errors.about_me = 'Please tell us about_me your company.';
-
-        return errors;
-    }
         
     // handle input change
     handleChangeWebsite = (e, index, field) => {
@@ -88,12 +74,70 @@ class RegisterCompanyModalComponent extends Component {
         });
         this.setState({website : values});
     };
-    
-    handleChange = event => {
+
+    onChangeCompanyName = event => {
+        let companyNameReady = event.target.value ? true : false;
+        let formTillNow = this.state.userNameReady && this.state.passwordReady && this.state.repasswordReady;
+
+        let formReadyFirst = formTillNow && companyNameReady;
+
         this.setState({
-          [event.target.id]: event.target.value
+          [event.target.id]: event.target.value,
+          companyNameReady: companyNameReady, 
+          formReadyFirst: formReadyFirst
         });
     }
+
+    onChangeUserName = event => {
+        let userNameReady = event.target.value ? true : false;
+        let formTillNow = this.state.companyNameReady && this.state.passwordReady && this.state.repasswordReady;
+
+        let formReadyFirst = formTillNow && userNameReady;
+
+        this.setState({
+          [event.target.id]: event.target.value,
+          userNameReady: userNameReady, 
+          formReadyFirst: formReadyFirst
+        });
+    }
+
+    onChangePassword = event => {
+        let passwordReady = event.target.value ? true : false;
+        let formTillNow = this.state.companyNameReady && this.state.userNameReady && this.state.repasswordReady;
+
+        let formReadyFirst = formTillNow && passwordReady;
+
+        this.setState({
+          [event.target.id]: event.target.value,
+          passwordReady: passwordReady, 
+          formReadyFirst: formReadyFirst
+        });
+    }
+    
+    onChangeRePassword = event => {
+        let repasswordReady = event.target.value ? true : false;
+        let formTillNow = this.state.companyNameReady && this.state.userNameReady && this.state.passwordReady;
+        let formReadyFirst = formTillNow && repasswordReady;
+        
+        formReadyFirst = formReadyFirst && (this.state.confirm_password !== this.state.password);
+        
+        this.setState({
+          [event.target.id]: event.target.value,
+          repasswordReady: repasswordReady, 
+          formReadyFirst: formReadyFirst
+        });
+    }
+    
+    onChangeAbout = event => {
+        let aboutReady = event.target.value ? true : false;
+        let formReadySecond = true && aboutReady;
+        this.setState({
+          [event.target.id]: event.target.value,
+          aboutReady: aboutReady,
+          formReadySecond: formReadySecond
+        });
+    }
+
 
     _handleReaderLoaded = (readerEvt) => {
         let binaryString = btoa(readerEvt.target.result);
@@ -119,8 +163,6 @@ class RegisterCompanyModalComponent extends Component {
                 this.setState({visible_success : true});
                 console.log("respone data : " + response.data);
                 console.log("response status : " + response.status);
-                localStorage.setItem('currentUserEmail', data.email);
-                localStorage.setItem('currentUserType', this.props.type);
                 this.props.login();
                 this.props.history.push('/');
             })
@@ -129,14 +171,11 @@ class RegisterCompanyModalComponent extends Component {
                 // this.setState({submit_error: error.response.data.error});
                 this.setState({loading: false});
                 this.setState({visible_error : true});
-                // console.log("response status : " , error.response.status); 
-                // console.log("response error : " , error.response.data.error);
             })
         })
     }
 
     handleSubmit = () => {
-        let errors = this.validateSecond();
         const data = { "company_name":this.state.company_name, 
                         "email":this.state.email,
                         "password":this.state.password,
@@ -161,23 +200,12 @@ class RegisterCompanyModalComponent extends Component {
                     break;
             }
         }   
-        console.log("data: "  , data);
 
-        if (Object.keys(errors).length === 0) {
-            this.submitForm(data); // send the data to the server
-        } else {
-            this.setState({ errors : errors });
-        }
+        this.submitForm(data); // send the data to the server
     }
 
     handleNext = () => {
-        const errors = this.validateFirst();
-        if (Object.keys(errors).length === 0) {
-            this.setState({currentModal: 1 });
-        } 
-        else {
-            this.setState({ errors : errors });
-        }
+        this.setState({currentModal: 1 });
     }
 
     handlePrev = () => {
@@ -185,11 +213,11 @@ class RegisterCompanyModalComponent extends Component {
     }
 
     render() {
-        const { errors, loading, submit_error} = this.state;
-        const submit_button = <Button variant="primary" onClick={this.handleSubmit}>
+        const { loading, submit_error} = this.state;
+        const submit_button = <button className="modalSubmitButton" onClick={this.handleSubmit}>
                                 {!loading ? "אישור": null }
                                 {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
-                            </Button>
+                            </button>
 
         const showAlertSuccess = this.state.visible_success ? 
             <Alert style={{textAlign:"center"}} color="success">
@@ -209,33 +237,46 @@ class RegisterCompanyModalComponent extends Component {
         return (
             <div> {this.state.currentModal === 0 ?
             <Modal show={this.props.isOpen} onHide={this.props.toggle}
-                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerCompanyModal">
-                <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                <RegisterCompanyFormFirst errors={errors} state={this.state} handleChange={this.handleChange}/>
+                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniormodal">
+                <div className="modalTitleTop">
+                    <Modal.Title className="modalTitle" id="contained-modal-title-vcenter">
+                    יצירת חשבון
+                    </Modal.Title>
+                    <div className="modalTitleUnderline"></div>
+                </div> 
+                <Modal.Body className="modalBody">
+                <RegisterCompanyFormFirst state={this.state} handleChange={this.handleChange}
+                    onChangeCompanyName={this.onChangeCompanyName}
+                    onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
+                    onChangeRePassword={this.onChangeRePassword}/>
                 </Modal.Body>
-                <Modal.Footer> 
-                    <Button variant="primary" onClick={this.handleNext}> הבא </Button>
-                </Modal.Footer>
+                {this.state.formReadyFirst
+                ? <button className="modalSubmitButton" onClick={this.handleNext}> הבא </button>
+                : <button className="modalSubmitButton" disabled> הבא </button>}
             </Modal> 
             :
             this.state.currentModal === 1 ? 
             <Modal show={this.props.isOpen} onHide={this.props.toggle}
-                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerCompanyModal">
-                <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                <RegisterCompanyFormSecond errors={errors} state={this.state} handleChange={this.handleChange} 
-                        handleChangeField={this.handleChangeField} handleChangeWebsite={this.handleChangeWebsite}
+                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniormodal">
+                <div className="modalTitleTop">
+                    <Modal.Title className="modalTitle" id="contained-modal-title-vcenter">
+                    יצירת חשבון
+                    </Modal.Title>
+                    <div className="modalTitleUnderline"></div>
+                </div>
+                <Modal.Body className="modalBody">
+                <RegisterCompanyFormSecond state={this.state} handleChange={this.handleChange} 
+                        handleChangeField={this.handleChangeField} handleChangeWebsite={this.handleChangeWebsite} onChangeAbout={this.onChangeAbout}
                         handleRemoveClick={this.handleRemoveClick} handleAddClick={this.handleAddClick} handleChangePicture={this.handleChangePicture}/>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={this.handlePrev}> קודם </Button>    
-                    {submit_button}    
-                </Modal.Footer>
+
+                <button className="modalSubmitButtonPrev" onClick={this.handlePrev}> הקודם </button>
+                {this.state.formReadySecond 
+                ? <button className="modalSubmitButton" onClick={this.handleSubmit}>
+                        {!loading ? "אישור": null }
+                        {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
+                    </button>
+                :  <button className="modalSubmitButton" disabled> אישור </button>}   
                 {showAlertSuccess}
                 {showAlertError}
             </Modal> : null }

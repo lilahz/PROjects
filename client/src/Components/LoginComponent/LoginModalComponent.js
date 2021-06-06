@@ -5,6 +5,7 @@ import { Button, Spinner, Alert } from 'reactstrap';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
+import './LoginModal.css';
 
 import { UserContext } from '../../UserContext';
 import { authActions } from '../../actions';
@@ -18,7 +19,9 @@ class LoginModalComponent extends Component {
     getInitialState = () => ({
         email: '',
         password: '',
-        errors: {},
+        userNameReady: false,
+        passwordReady: false,
+        formReady: false,
         submit_error: '',
         visible_success: false,
         visible_error: false,
@@ -27,8 +30,8 @@ class LoginModalComponent extends Component {
 
     static contextType = UserContext;
 
-    onShowAlert = (toggle) =>{
-        this.setState({visible:true},()=>{
+    onShowAlertSuccess = (toggle) =>{
+        this.setState({visible_success:true},()=>{
           window.setTimeout(()=>{
             // toggle();
             this.setState({visible_success:false})
@@ -36,16 +39,32 @@ class LoginModalComponent extends Component {
         });
     }
 
-    validate = () => {
-        let errors = {};
-        if (this.state.email === '') errors.email = 'שדה זה הינו חובה';
-        if (this.state.password === '') errors.password = 'שדה זה הינו חובה';
-        return errors;
+    onShowAlertFail = (toggle) =>{
+        this.setState({visible_error:true},()=>{
+          window.setTimeout(()=>{
+            // toggle();
+            this.setState({visible_error:false})
+          },3000)
+        });
     }
 
-    handleChange = event => {
+    handleChangeUserName = event => {
+        let userNameReady = event.target.value ? true : false;
+        let formReady = this.state.passwordReady && userNameReady;
         this.setState({
-          [event.target.id]: event.target.value
+          [event.target.id]: event.target.value,
+          userNameReady: userNameReady, 
+          formReady: formReady
+        });
+    }
+
+    handleChangePassword = event => {
+        let passwordReady = event.target.value ? true : false;
+        let formReady = this.state.userNameReady && passwordReady;
+        this.setState({
+          [event.target.id]: event.target.value,
+          passwordReady: passwordReady, 
+          formReady: formReady
         });
     }
 
@@ -54,7 +73,6 @@ class LoginModalComponent extends Component {
             const url = this.props.url;
             axios.post(url, data)
             .then(response => {
-                console.log("respone data : ", response.data);
                 this.setState({loading: false});
                 this.setState({visible_error : false});
                 localStorage.setItem('id', response.data.id);
@@ -62,40 +80,33 @@ class LoginModalComponent extends Component {
                 localStorage.setItem('currentUserType', this.props.type);
                 this.props.login();
                 this.props.history.push('/');
+                this.onShowAlertSuccess();
             })
             .catch(error => {
                 this.setState({submit_error: error.response.data.error});
                 this.setState({loading: false});
                 this.setState({visible_error : true});
-                console.log("response error : " , error.response.data.error);
+                this.onShowAlertFail();
             })
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const errors = this.validate();
         const data = {"email":this.state.email,
                       "password":this.state.password };
 
-        if (Object.keys(errors).length === 0) {
-            this.submitForm(data); // send the data to the server
-        } else {
-            this.setState({ errors });
-        }
+        this.submitForm(data); // send the data to the server
     }
 
 
     render() {
-        const { errors, loading, submit_error } = this.state;
-        const submit_button = <Button variant="primary" onClick={this.handleSubmit}>
-                            {!loading ? "אישור": null }
-                            {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
-                        </Button>
+        const { loading, submit_error } = this.state;
 
-        const showAlertSuccess = this.state.visible_success ? 
-            <Alert style={{textAlign:"center"}} color="success">
-                Logged in Successfully!</Alert> : null;
+        const showAlertSuccess = <Alert style={{textAlign:"center"}} 
+                                    color="success" isOpen={this.state.visible_success}>
+                                    Logged in Successfully!
+                                </Alert>;
 
         const error_message = 
             submit_error === 'already_login' ? 'מישהו כבר מחובר לאתר' :
@@ -103,22 +114,29 @@ class LoginModalComponent extends Component {
             submit_error === 'wrong_password' ? 'סיסמא שגויה' : 
             'אפוס, שגיאה כללית!' ;
 
-        const showAlertError = this.state.visible_error ? 
-                    <Alert style={{textAlign:"center"}} color="danger">
-                        {error_message}</Alert> : null;        
+        const showAlertError = <Alert style={{textAlign:"center"}} 
+                                    color="danger" isOpen={this.state.visible_error}>
+                                    {error_message}
+                                </Alert>;        
 
         return (
             <Modal show={this.props.isOpen} onHide={this.props.toggle}
-                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerCompanyModal">
-                <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter"> התחבר </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <LoginForm errors={errors} state={this.state} handleChange={this.handleChange}/>
+                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="loginmodal">
+                <div className="modalTitleTop">
+                    <Modal.Title className="modalTitle" id="contained-modal-title-vcenter">
+                    התחבר
+                    </Modal.Title>
+                    <div className="modalTitleUnderline"></div>
+                </div> 
+                <Modal.Body className="modalBody">
+                    <LoginForm state={this.state} handleChangeUserName={this.handleChangeUserName} handleChangePassword={this.handleChangePassword}/>
                 </Modal.Body>
-                 <Modal.Footer>
-                     {submit_button}
-                 </Modal.Footer>
+                {this.state.formReady  
+                    ? <button className="modalSubmitButton" onClick={this.handleSubmit}>
+                        {!loading ? "אישור": null }
+                        {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
+                      </button>
+                    : <button className="modalSubmitButton" disabled>צור</button> }
                  {showAlertSuccess}
                  {showAlertError}
              </Modal>
