@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText, Row, MDBFooter} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import ProjectModalComponent from './ProjectModalComponent';
 import {field_array} from '../data';
@@ -27,8 +27,13 @@ class ProjectComponent extends Component {
         })
     );
     
-    fieldArrayIcon = (projectFields) => (
+    fieldArrayIconForModal = (projectFields) => (
         projectFields.map((field) => (
+                (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
+    );
+
+    fieldArrayIconForCard = (projectFields) => (
+        projectFields.slice(0,5).map((field) => (
                 (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
     );
 
@@ -61,7 +66,7 @@ class ProjectComponent extends Component {
                                 </Mask>
                             </View>
                             <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
-                            <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>
+                            <MDBCardText className="Fields">{this.fieldArrayIconForCard(this.props.cardField)}</MDBCardText>
                         </MDBCardBody>
                         <MDBFooter className="Footer">
                                 {email_button}
@@ -76,7 +81,7 @@ class ProjectComponent extends Component {
                         modalTitle={this.props.cardTitle}
                         modalCardProjectDesc={this.props.cardProjectDesc}
                         modalCardCompDesc={this.props.cardCompDesc}
-                        modalField={this.fieldArrayIcon(this.props.cardField)}
+                        modalField={this.fieldArrayIconForModal(this.props.cardField)}
                         modalEmail={email_button}
                         modalCompanyURL={companyURL_button}
                         modalFacebookURL={facebookURL_button}

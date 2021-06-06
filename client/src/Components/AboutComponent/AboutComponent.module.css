@@ -9,6 +9,7 @@
     position: absolute;
     width: 100%;
     height: 485px;
+    overflow-x:hidden;
 }
 
 .AboutHeaderRight {
@@ -18,7 +19,7 @@
     padding: 0px;
     
     position: absolute;
-    width: 405px;
+    width: 340px;
     height: 50px;
     left: 1066px;
     top: 130px;
@@ -26,9 +27,10 @@
 
 .AboutHeaderRight h1 {
     position: static;
+    width: auto;
     height: 42px;
     left: 0px;
-    padding-right: 267px;
+    padding-right: 98px;
     top: 0px;
     font-style: normal;
     font-weight: bold;
@@ -76,13 +78,151 @@
 
 
 .AboutBottom {
-    top: 340px;
+    top: 350px;
     position: absolute;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.AllItemsTop .AllItemsBottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.AllItemsTop {
+    top: 15px;
+    position: absolute;
+    width: 100%;
+    height: 485px;
+    overflow-x:hidden;
+}
+
+.AllItemsBottom {
+    height: 100%;
+}
+
+.AllItemsHeaderRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 340px;
+    height: 50px;
+    right: 0px;
+    top: 130px;
+}
+
+.AllItemsHeaderRight h1 {
+    position: static;
+    width: auto;
+    height: 42px;
+    left: 0px;
+    padding-right: 198px;
+    top: 0px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 42px;
+
+    color: #020A2F;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+
+.AllItemsHeaderUnderline {
+    position: static;
+    width: 100%;
+    height: 6px;
+    left: 0px;
+
+    background: #D31172;
+    border-radius: 10px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+
+.AllItemsBottom {
+    height: 100%;
+}
+
+
+.contactUsTop .contactUsBottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.contactUsTop {
+    top: 800px;
+    position: absolute;
+    width: 100%;
+    height: 485px;
+    overflow-x:hidden;
+}
+
+.contactUsBottom {
+    height: 100%;
+}
+
+.contactUsHeaderRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: absolute;
+    width: 340px;
+    height: 50px;
+    right: 0px;
+    top: 130px;
+}
+
+.contactUsHeaderRight h1 {
+    position: static;
+    width: auto;
+    height: 42px;
+    left: 0px;
+    padding-right: 98px;
+    top: 0px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 42px;
+
+    color: #020A2F;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+
+.contactUsHeaderUnderline {
+    position: static;
+    width: 100%;
+    height: 6px;
+    left: 0px;
+    top: 1000px;
+
+    background: #D31172;
+    border-radius: 10px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+
+.contactUsBottom {
+    height: 100%;
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBCardFooter, Row, MDBFooter} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import JuniorModalComponent from './JuniorModalComponent';
 import {field_array} from '../data';
@@ -25,18 +25,18 @@ class JuniorComponent extends Component {
     
     findArrayElementByField = (fieldValue) => (
         field_array.find((element) => {
-          return element.value === fieldValue;
+            return element.value === fieldValue;
         })
     );
     
     fieldArrayIconForCard = (juniorFields) => (
         juniorFields.slice(0,3).map((field) => (
-                (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
+            (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
     );
 
-    fieldArrayIconForLearnMore = (juniorFields) => (
+    fieldArrayIconForModal = (juniorFields) => (
         juniorFields.map((field) => (
-                (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
+            (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
     );
 
     render () {
@@ -89,7 +89,7 @@ class JuniorComponent extends Component {
                         toggle={this.toggle}
                         modalTitle={this.props.cardTitle}
                         modalDescription={this.props.cardText}
-                        modalField={this.fieldArrayIconForLearnMore(this.props.cardField)}
+                        modalField={this.fieldArrayIconForModal(this.props.cardField)}
                         modalEmail={email_button}
                         modalPersonalURL={personalURL_button}
                         modalFacebookURL={facebookURL_button}

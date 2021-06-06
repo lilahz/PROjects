@@ -23,15 +23,23 @@ class LoginComponent extends Component {
 
     render() {
         return (
-            <div className={classes.LoginComponent}>
+            <div>
                 <div>
-                    <h1>התחברות</h1>
-                    <h3>?מי אתה</h3>
+                    <div>
+                        <div className={classes.AllItemsHeaderRight}>
+                            <h1 dir="rtl">התחברות</h1>
+                            <div className={classes.AllItemsHeaderUnderline}></div>
+                        </div> 
+                        {/* <img src={leftImage} className={classes.AboutLeftImage} alt=""/>  */}
+                        <p className={classes.AboutPar} dir="rtl">
+                           אם כבר נירשמת כל מה שאתה צריך זה ללחוץ על הכפתור שמתאים עבורך ולמצוא פרטנרים לפרויקט חדש!<br></br> 
+                        </p>  
+                    </div>    
                     <div className={classes.Buttons}>
                         <Button
                             className={classes.Button}
                             variant="outline-secondary"
-                            style={{margin: "8px"}}
+                            style={{width: "130px"}}
                             onClick={this.toggleCompanyForm}
                             block>
                                 עמותה
@@ -39,12 +47,12 @@ class LoginComponent extends Component {
                         <Button
                             className={classes.Button}
                             variant="outline-secondary"
-                            style={{margin: "8px"}}
+                            style={{width: "130px"}}
                                 onClick={this.toggleJuniorForm}
                             block>
-                                מתמחה
+                                ג'וניור
                         </Button>
-                    </div>
+                    </div>      
                     <LoginModalComponent className="Modal"
                         isOpen={this.state.companyModal} 
                         toggle={this.toggleCompanyForm}

@@ -8,7 +8,7 @@
 }
 
 .Item {
-    padding-bottom: 80px;
+    padding-bottom: 100px;
     max-width: 30%;
     border-radius: 20%;
     top: 50px;
@@ -31,7 +31,7 @@
 
 .Card{
     height: 350px;
-    width: 250px;
+    width: 280px;
     position: relative;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .Body{
-    width: 250px;
+    width: 280px;
     height: 270px;
     background: #FFFDFA;
     border-radius: 0px 0px 8px 8px;

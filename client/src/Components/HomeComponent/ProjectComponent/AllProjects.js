@@ -32,13 +32,13 @@ class AllProjects extends Component {
     }
 
     toggle = (activeNum) => {
-        activeNum == 1 ? this.setState({isActive1: !this.state.isActive1}) :
-        activeNum == 2 ? this.setState({isActive2: !this.state.isActive2}) :
-        activeNum == 3 ? this.setState({isActive3: !this.state.isActive3}) :
-        activeNum == 4 ? this.setState({isActive4: !this.state.isActive4}) :
-        activeNum == 5 ? this.setState({isActive5: !this.state.isActive5}) :
-        activeNum == 6 ? this.setState({isActive6: !this.state.isActive6}) :
-        activeNum == 7 ? this.setState({isActive7: !this.state.isActive7}) :
+        activeNum === 1 ? this.setState({isActive1: !this.state.isActive1}) :
+        activeNum === 2 ? this.setState({isActive2: !this.state.isActive2}) :
+        activeNum === 3 ? this.setState({isActive3: !this.state.isActive3}) :
+        activeNum === 4 ? this.setState({isActive4: !this.state.isActive4}) :
+        activeNum === 5 ? this.setState({isActive5: !this.state.isActive5}) :
+        activeNum === 6 ? this.setState({isActive6: !this.state.isActive6}) :
+        activeNum === 7 ? this.setState({isActive7: !this.state.isActive7}) :
         this.setState({isActive8: !this.state.isActive8});
     }
 
@@ -54,12 +54,12 @@ class AllProjects extends Component {
 
         this.toggle(activeNum);
 
-        if( newProjectsFieldFilter.length == 0 ) // no more filter
+        if( newProjectsFieldFilter.length === 0 ) // no more filter
             newcurrProjectsArray = this.state.allProjectsArray;
         else {
             newcurrProjectsArray = this.state.allProjectsArray.filter(project =>
                 project.field.some(r => 
-                   newProjectsFieldFilter.some(f => r == f)));
+                   newProjectsFieldFilter.some(f => r === f)));
         }
 
         this.setState({projectsFieldFilter:newProjectsFieldFilter,
@@ -98,7 +98,7 @@ class AllProjects extends Component {
                         <h1 dir="rtl">הפרויקטים שלנו</h1>
                         <div className={classes.AllItemsHeaderUnderline}></div>
                     </div> 
-                    <img src={leftImage} className={classes.AllItemsLeftImage} alt=""/>               
+                    <img src={leftImage} className={classes.AllItemsLeftImage} alt=""/>
                     <div className={classes.AllItemsFilter}>
                         <h3 className={classes.AllItemsFilterHeader}>בחר תחומי עיסוק</h3>
                         {filter_buttons}

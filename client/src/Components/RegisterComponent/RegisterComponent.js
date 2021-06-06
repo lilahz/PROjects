@@ -24,15 +24,23 @@ class RegisterComponent extends Component {
 
     render() {
         return (
-            <div className={classes.RegisterComponent}>
+            <div>
                 <div>
-                    <h1>הירשם</h1>
-                    <h3>?מי אתה</h3>
+                    <div>
+                        <div className={classes.AllItemsHeaderRight}>
+                            <h1 dir="rtl">הרשמה</h1>
+                            <div className={classes.AllItemsHeaderUnderline}></div>
+                        </div> 
+                        {/* <img src={leftImage} className={classes.AboutLeftImage} alt=""/>  */}
+                        <p className={classes.AboutPar} dir="rtl">
+                           אם עוד לא נרשמת לאתר תלחץ על הכפתור שמתאים לך ותמצא שותפים חדשים לפרויקט!<br></br> 
+                        </p>  
+                    </div> 
                     <div className={classes.Buttons}>
                         <Button
                             className={classes.Button}
                             variant="outline-secondary"
-                            style={{margin: "8px"}}
+                            style={{width: "130px"}}
                             onClick={this.toggleCompanyForm}
                             block>
                                 עמותה
@@ -40,10 +48,10 @@ class RegisterComponent extends Component {
                         <Button
                             className={classes.Button}
                             variant="outline-secondary"
-                            style={{margin: "8px"}}
+                            style={{width: "130px"}}
                                 onClick={this.toggleJuniorForm}
                             block>
-                                מתמחה
+                                ג'וניור
                         </Button>
                     </div>
                     <RegisterCompanyModalComponent className="Modal"
