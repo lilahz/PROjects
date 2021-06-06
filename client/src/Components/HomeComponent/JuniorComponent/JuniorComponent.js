@@ -69,7 +69,7 @@ class JuniorComponent extends Component {
                                     waves >
                                 </img>
                                 <Mask className="InnerBody">
-                                    <MDBBtn onClick = { this.toggle }>קצת פרטים</MDBBtn>
+                                    <MDBBtn color=" red-text" className="rounded blue lighten-5" onClick = { this.toggle }>קצת פרטים</MDBBtn>
                                 </Mask>
                             </View>
                             <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
