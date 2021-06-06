@@ -1,11 +1,11 @@
-.newProjectmodal .modal-content {
+.loginmodal .modal-content {
     background-color: #FFF6EB;
     width: 480px;
-    height: 490px;
+    height: 350px;
     font-family: Assistant;
 }
 
-.newProjectmodal .modalTitleTop {
+.loginmodal .modalTitleTop {
     position: static;
     width: 300px;
     height: 72px;
@@ -18,7 +18,7 @@
     margin: 2px 0px 2px 0px;
 }
   
-.newProjectmodal .modalTitle {
+.loginmodal .modalTitle {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,7 +39,7 @@
     margin: 20px 0px;
 }
 
-.newProjectmodal .modalTitleUnderline {
+.loginmodal .modalTitleUnderline {
     position: absolute;
     width: 300px;
     height: 6px;
@@ -51,52 +51,11 @@
     transform: matrix(1, 0, 0, -1, 0, 0);
 }
 
-.newProjectmodal .FilterButtons {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-
-    position: absolute;
-    width: 100%;
-    height: 29px;
-    right: 32px;
-    top: 240px;
-}
-
-.newProjectmodal .FilterButtons button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position: static;
-    width: auto;
-    height: 29px;
-
-    top: 0px;
-    background: #FFFDFA;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    flex: none;
-    order: 8;
-    flex-grow: 0;
-    margin: 0px 13px 13px 13px;
-    padding: 4px 8px ;
-
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 21px;
-    border: none;
-    outline:none;   
-}
-
-.newProjectmodal .modalSubmitButton {
+.loginmodal .modalSubmitButton {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* padding: 8px 24px 8px 16px; */
 
     position: absolute;
     width: 90px;
@@ -114,6 +73,6 @@
     border-radius: 12px;
 }
 
-.newProjectmodal .modalSubmitButton:disabled {
+.loginmodal .modalSubmitButton:disabled {
     background: #cccccc;
 }

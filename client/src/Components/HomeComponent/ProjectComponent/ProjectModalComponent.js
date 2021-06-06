@@ -7,6 +7,7 @@ import '../../Modal.css';
 
 class ProjectModalComponent extends Component {
 
+
     render() {
         const fields = this.props.modalField.length <= 4
                        ? this.props.modalField

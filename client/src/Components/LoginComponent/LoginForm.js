@@ -1,23 +1,20 @@
 import React from 'react';
-import { FormGroup, FormFeedback, Input, Form} from 'reactstrap';
+import { FormGroup, Input} from 'reactstrap';
+import './LoginForm.css';
 
 
 const LoginForm = (props) => (
-        <div>
-            <Form> 
-                <FormGroup>
-                    <Input id="email" type="email" value={props.state.email} onChange={props.handleChange}
-                    invalid={props.errors.email ? true : false} placeholder=" מייל *" />
-                <FormFeedback>{props.errors.email}</FormFeedback>
-            </FormGroup><br></br>
+    <div>
+        <FormGroup className="formGroup">
+            <Input id="email" type="email" value={props.state.email} onChange={props.handleChangeUserName}
+            placeholder=" מייל *" />
+        </FormGroup>
 
-            <FormGroup>
-                <Input id="password" type="password" value={props.state.password} onChange={props.handleChange}
-                    invalid={props.errors.password ? true : false} placeholder=" סיסמא *" />
-                <FormFeedback>{props.errors.password}</FormFeedback>
-            </FormGroup> <br></br>
-            </Form>      
-        </div>
+        <FormGroup className="formGroup">
+            <Input id="password" type="password" value={props.state.password} onChange={props.handleChangePassword}
+                placeholder=" סיסמא *" />
+        </FormGroup>
+    </div>
 );
 
 export default LoginForm;

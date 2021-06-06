@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal";
-import {Button, Spinner, Alert} from 'reactstrap';
+import {Spinner, Alert} from 'reactstrap';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {RegisterJuniorFormFirst, RegisterJuniorFormSecond} from './RegisterJuniorForm';
 import { authActions } from '../../actions';
+import './RegisterJuniorModal.css';
+import { MDBRow } from 'mdbreact';
+
 
 class RegisterJuniorModalComponent extends Component {
     constructor(props) {
@@ -23,12 +26,27 @@ class RegisterJuniorModalComponent extends Component {
         website: [{label: 'אתר אישי', url: ''}],
         about_me: '',
         profile_picture: '',
-        errors: {},
+        fullNameReady: false,
+        userNameReady: false,
+        passwordReady: false,
+        repasswordReady: false,
+        aboutReady: false,
+        fieldsReady: false,
+        formReadyFirst: false,
+        formReadySecond: false,
         submit_error: '',
         visible_success: false,
         visible_error: false,
         loading: false,
         currentModal: 0,
+        isActive1 : false,
+        isActive2 : false,
+        isActive3 : false,
+        isActive4 : false,
+        isActive5 : false,
+        isActive6 : false,
+        isActive7 : false,
+        isActive8 : false
     });
 
     onShowAlert = () =>{
@@ -40,27 +58,15 @@ class RegisterJuniorModalComponent extends Component {
         });
     }
 
-    validateFirst = () => {
-        var emailPattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-        let errors = {};
-
-        if (this.state.full_name === '') errors.full_name = 'שדה זה הינו חובה.';
-        if(!emailPattern.test(this.state.email)) errors.email = 'שדה זה הינו חובה.';
-        if (this.state.password === '') errors.password = 'שדה זה הינו חובה.';
-        if(this.state.password !== this.state.confirm_password) errors.confirm_password = 'הסיסמאות לא תואמות.';
-
-        return errors;
-    }
-
-    validateSecond = () => {
-        // var linkPattern = new RegExp(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-        let errors = {};
-        
-        if (this.state.field === [] | this.state.field === null) errors.field = 'שדה זה הינו חובה.';
-        // if(!linkPattern.test(this.state.website)) errors.website = 'Invalid URL.';
-        if (this.state.about_me === '') errors.about_me = 'שדה זה הינו חובה.';
-
-        return errors;
+    toggle = (activeNum) => {
+        activeNum === 1 ? this.setState({isActive1: !this.state.isActive1}) :
+        activeNum === 2 ? this.setState({isActive2: !this.state.isActive2}) :
+        activeNum === 3 ? this.setState({isActive3: !this.state.isActive3}) :
+        activeNum === 4 ? this.setState({isActive4: !this.state.isActive4}) :
+        activeNum === 5 ? this.setState({isActive5: !this.state.isActive5}) :
+        activeNum === 6 ? this.setState({isActive6: !this.state.isActive6}) :
+        activeNum === 7 ? this.setState({isActive7: !this.state.isActive7}) :
+        this.setState({isActive8: !this.state.isActive8});
     }
 
     // handle input change
@@ -90,21 +96,93 @@ class RegisterJuniorModalComponent extends Component {
         this.setState({website : values});
     };
 
-    handleChange = event => {
+    onChangeFullName = event => {
+        let fullNameReady = event.target.value ? true : false;
+        let formTillNow = this.state.userNameReady && this.state.passwordReady && this.state.repasswordReady;
+
+        let formReadyFirst = formTillNow && fullNameReady;
+
         this.setState({
-          [event.target.id]: event.target.value
+          [event.target.id]: event.target.value,
+          fullNameReady: fullNameReady, 
+          formReadyFirst: formReadyFirst
         });
     }
 
-    handleChangeField = selected => {
-        if (selected === null || selected.length === 0) {
-            this.setState({field: []})
-        }
-        else {
-            let valuesArrObj = selected.reduce((acc, current) => acc.concat(current.value), []);
-            this.setState({field: valuesArrObj});
-        }
+    onChangeUserName = event => {
+        let userNameReady = event.target.value ? true : false;
+        let formTillNow = this.state.fullNameReady && this.state.passwordReady && this.state.repasswordReady;
+
+        let formReadyFirst = formTillNow && userNameReady;
+
+        this.setState({
+          [event.target.id]: event.target.value,
+          userNameReady: userNameReady, 
+          formReadyFirst: formReadyFirst
+        });
     }
+
+    onChangePassword = event => {
+        let passwordReady = event.target.value ? true : false;
+        let formTillNow = this.state.fullNameReady && this.state.userNameReady && this.state.repasswordReady;
+
+        let formReadyFirst = formTillNow && passwordReady;
+
+        this.setState({
+          [event.target.id]: event.target.value,
+          passwordReady: passwordReady, 
+          formReadyFirst: formReadyFirst
+        });
+    }
+    
+    onChangeRePassword = event => {
+        let repasswordReady = event.target.value ? true : false;
+        let formTillNow = this.state.fullNameReady && this.state.userNameReady && this.state.passwordReady;
+        let formReadyFirst = formTillNow && repasswordReady;
+        
+        formReadyFirst = formReadyFirst && (this.state.confirm_password !== this.state.password);
+        
+        this.setState({
+          [event.target.id]: event.target.value,
+          repasswordReady: repasswordReady, 
+          formReadyFirst: formReadyFirst
+        });
+    }
+
+    onChangeAbout = event => {
+        let aboutReady = event.target.value ? true : false;
+        let formReadySecond = this.state.fieldsReady && aboutReady;
+        this.setState({
+          [event.target.id]: event.target.value,
+          aboutReady: aboutReady, 
+          formReadySecond: formReadySecond
+        });
+    }
+
+    onChangefield(selected, activeNum) {
+        let fieldsReady;
+        let index = this.state.field.indexOf(selected);
+        let newFieldArray = this.state.field;
+
+        if(index !== -1)  // remove field
+            newFieldArray.splice(index, 1);
+        else // add field
+            newFieldArray.push(selected);
+
+        this.toggle(activeNum);
+
+        if (newFieldArray === [] || newFieldArray === null || newFieldArray.length === 0)
+            fieldsReady = false;
+        else    
+            fieldsReady = true;
+
+        let formReadySecond = this.state.aboutReady && fieldsReady;
+
+        this.setState({field : newFieldArray,
+                        fieldsReady: fieldsReady, 
+                        formReadySecond: formReadySecond});
+    }
+    
 
     _handleReaderLoaded = (readerEvt) => {
         let binaryString = btoa(readerEvt.target.result);
@@ -129,8 +207,6 @@ class RegisterJuniorModalComponent extends Component {
                 this.setState({visible_success : true});
                 console.log("respone data : " + response.data);
                 console.log("response status : " + response.status);
-                localStorage.setItem('currentUserEmail', data.email);
-                localStorage.setItem('currentUserType', this.props.type);
                 this.props.login();
                 this.props.history.push('/');
             })
@@ -145,7 +221,6 @@ class RegisterJuniorModalComponent extends Component {
     }
 
     handleSubmit = () => {
-        const errors = this.validateSecond();
         const data = { "full_name":this.state.full_name, 
                         "email":this.state.email,
                         "password":this.state.password,
@@ -177,22 +252,11 @@ class RegisterJuniorModalComponent extends Component {
             }
         }
 
-        if (Object.keys(errors).length === 0) {
-            console.log("data : ", data);
-            this.submitForm(data); // send the data to the server
-        } else {
-            this.setState({ errors : errors });
-        }
+        this.submitForm(data); // send the data to the server
     }
 
     handleNext = () => {
-        const errors = this.validateFirst();
-        if (Object.keys(errors).length === 0) {
-            this.setState({currentModal: 1 });
-        } 
-        else {
-            this.setState({ errors : errors });
-        }
+        this.setState({currentModal: 1 });
     }
 
     handlePrev = () => {
@@ -200,15 +264,43 @@ class RegisterJuniorModalComponent extends Component {
     }
 
     render() {
-        const { errors, loading, submit_error} = this.state;
-        const submit_button = <Button variant="primary" onClick={this.handleSubmit}>
-                            {!loading ? "אישור": null }
-                            {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
-                        </Button>
+        const { loading, submit_error} = this.state;
+
+        const style1 = this.state.isActive1 ? {background: "#D31172"} : {background: "#FFFDFA"};
+        const style2 = this.state.isActive2 ? {background: "#D31172"} : {background: "#FFFDFA"};
+        const style3 = this.state.isActive3 ? {background: "#D31172"} : {background: "#FFFDFA"};
+        const style4 = this.state.isActive4 ? {background: "#D31172"} : {background: "#FFFDFA"};
+        const style5 = this.state.isActive5 ? {background: "#D31172"} : {background: "#FFFDFA"};
+        const style6 = this.state.isActive6 ? {background: "#D31172"} : {background: "#FFFDFA"};
+        const style7 = this.state.isActive7 ? {background: "#D31172"} : {background: "#FFFDFA"};
+        const style8 = this.state.isActive8 ? {background: "#D31172"} : {background: "#FFFDFA"};
+
+        const filter_buttons =         
+            <div className="FilterButtons">
+                <MDBRow>
+                    <button type="button" style={style1} onClick={() => this.onChangefield("appdev", 1)}>פיתוח אפליקציות</button>
+                    <button type="button" style={style2} onClick={() => this.onChangefield("webdev", 2)}>פיתוח אתרים</button>
+                    <button type="button" style={style3} onClick={() => this.onChangefield("marketing", 3)}>שיווק</button>
+                    <button type="button" style={style4} onClick={() => this.onChangefield("logodesign", 4)}>עיצוב לוגו</button>
+                    <button type="button" style={style5} onClick={() => this.onChangefield("webdesign", 5)}>עיצוב אתרים</button>
+                    <button type="button" style={style6} onClick={() => this.onChangefield("legal", 6)}>סיוע משפטי</button>
+                    <button type="button" style={style7} onClick={() => this.onChangefield("legal", 7)}>סיוע כלכלי</button>
+                    <button type="button" style={style8} onClick={() => this.onChangefield("sales", 8)}>מכירות</button>
+                </MDBRow>
+            </div>;
+
+        const submit_button = <button className="modalSubmitButton" onClick={this.handleSubmit}>
+                                {!loading ? "אישור": null }
+                                {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
+                               </button>;
 
         const showAlertSuccess = this.state.visible_success ? 
             <Alert style={{textAlign:"center"}} color="success">
                 חשבון נוצר בהצלחה!</Alert> : null;
+
+        const showAlertError = this.state.visible_error ? 
+            <Alert style={{textAlign:"center"}} color="danger">
+                {error_message}</Alert> : null;    
                 
         const error_message = 
             submit_error === 'already_login' ? 'מישהו כבר מחובר לאתר' :
@@ -217,40 +309,52 @@ class RegisterJuniorModalComponent extends Component {
             submit_error === 'already_exists' ? 'חשבון עם מייל זה כבר קיים' :
             'אפוס, שגיאה כללית!' ;
 
-        const showAlertError = this.state.visible_error ? 
-                <Alert style={{textAlign:"center"}} color="danger">
-                    {error_message}</Alert> : null;        
-
         return (
             <div> {this.state.currentModal === 0 ? 
             <Modal show={this.props.isOpen} onHide={this.props.toggle}
-                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniorModal">
-                <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
-                </Modal.Header>
-                <Modal.Body> 
-                    <RegisterJuniorFormFirst errors={errors} state={this.state} handleChange={this.handleChange}/>
+                aria-labelledby="contained-modal-title-vcenter"
+                centered dialogClassName="modal-70w" className="registerJuniormodal">
+                <div className="modalTitleTop">
+                    <Modal.Title className="modalTitle" id="contained-modal-title-vcenter">
+                    יצירת חשבון
+                    </Modal.Title>
+                    <div className="modalTitleUnderline"></div>
+                </div> 
+                <Modal.Body className="modalBody"> 
+                    <RegisterJuniorFormFirst state={this.state}
+                         onChange={this.onChange} onChangeFullName={this.onChangeFullName}
+                         onChangeUserName={this.onChangeUserName} onChangePassword={this.onChangePassword}
+                         onChangeRePassword={this.onChangeRePassword} />
                 </Modal.Body>
-                <Modal.Footer> 
-                    <Button variant="primary" onClick={this.handleNext}> הבא </Button>
-                </Modal.Footer>
+                {this.state.formReadyFirst
+                ? <button className="modalSubmitButton" onClick={this.handleNext}> הבא </button>
+                : <button className="modalSubmitButton" disabled> הבא </button>}
             </Modal> 
             :
             this.state.currentModal === 1 ? 
             <Modal show={this.props.isOpen} onHide={this.props.toggle}
-                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniorModal">
-                <Modal.Header>
-                    <Modal.Title id="contained-modal-title-vcenter"> יצירת חשבון </Modal.Title>
-                </Modal.Header>
-                <Modal.Body> 
-                    <RegisterJuniorFormSecond errors={errors} state={this.state} handleChange={this.handleChange} 
-                        handleChangeField={this.handleChangeField} handleChangeWebsite={this.handleChangeWebsite}
+                aria-labelledby="contained-modal-title-vcenter" centered dialogClassName="modal-70w" className="registerJuniormodal">
+                <div className="modalTitleTop">
+                    <Modal.Title className="modalTitle" id="contained-modal-title-vcenter">
+                    יצירת חשבון
+                    </Modal.Title>
+                    <div className="modalTitleUnderline"></div>
+                </div>
+                <Modal.Body className="modalBody"> 
+                    <RegisterJuniorFormSecond state={this.state} 
+                        handleChangeWebsite={this.handleChangeWebsite} onChangeAbout={this.onChangeAbout}
+                        filterButtons={filter_buttons}
                         handleRemoveClick={this.handleRemoveClick} handleAddClick={this.handleAddClick} handleChangePicture={this.handleChangePicture}/>
                 </Modal.Body>
-                <Modal.Footer> 
-                    <Button variant="primary" onClick={this.handlePrev}> קודם </Button>    
-                    {submit_button}               
-                </Modal.Footer>
+
+                <button className="modalSubmitButtonPrev" onClick={this.handlePrev}> הקודם </button>
+                {this.state.formReadySecond 
+                ? <button className="modalSubmitButton" onClick={this.handleSubmit}>
+                        {!loading ? "אישור": null }
+                        {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
+                    </button> 
+                : <button className="modalSubmitButton" disabled> אישור </button>}
+                              
                 {showAlertSuccess}
                 {showAlertError}
             </Modal> : null }
