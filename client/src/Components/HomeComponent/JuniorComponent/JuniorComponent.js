@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBFooter} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBFooter, MDBRow} from 'mdbreact';
 import '../ItemComponent.css';
 import JuniorModalComponent from './JuniorModalComponent';
 import {field_array} from '../data';
@@ -76,12 +76,12 @@ class JuniorComponent extends Component {
                             <MDBCardText className="Fields">{this.fieldArrayIconForCard(this.props.cardField)}</MDBCardText>
                         </MDBCardBody>
                         <MDBFooter className="Footer">
-                                {email_button}
-                                {personalURL_button}
-                                {facebookURL_button}
-                                {instagramURL_button}
-                                {linkedInURL_button}
-                                {gitHubURL_button}
+                            {email_button}
+                            {personalURL_button}
+                            {facebookURL_button}
+                            {instagramURL_button}
+                            {linkedInURL_button}
+                            {gitHubURL_button}
                         </MDBFooter>
                     </MDBCard>
                     <JuniorModalComponent className="Modal"
@@ -97,8 +97,8 @@ class JuniorComponent extends Component {
                         modalLinkedInURL={linkedInURL_button}
                         modalGitHubURL={gitHubURL_button}
                     />
-                    </MDBCol>
                 </MDBCol>
+            </MDBCol>
         )
     }
 }
