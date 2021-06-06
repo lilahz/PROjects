@@ -12,12 +12,8 @@
     max-width: 30%;
     border-radius: 20%;
     top: 50px;
-    display: flex;
+    /* display: flex; */
     justify-content: space-around;
-}
-
-.ItemBody {
-    height: 8em;
 }
 
 .ItemFooter {
