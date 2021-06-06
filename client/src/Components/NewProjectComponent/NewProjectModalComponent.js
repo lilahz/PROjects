@@ -111,6 +111,7 @@ class NewProjectModalComponent extends Component {
 
     render() {
         const context = this.context;
+
         const showAlert = this.state.visible ? 
                     <Alert style={{textAlign:"center"}} variant="success">
                         פרוייקט נוצר בהצלחה!</Alert> : null;

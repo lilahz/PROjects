@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Tooltip from "@material-ui/core/Tooltip";
-import {IoPersonAdd} from 'react-icons/io5';
 import Modal from "react-bootstrap/Modal";
 import '../../Modal.css';
 

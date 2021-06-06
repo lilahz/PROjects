@@ -1,12 +1,9 @@
 .AllItems {
-    width: 93%;
+    width: 90%;
     top: 500px;
-    right: 60px;
+    right: 80px;
     position: absolute;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    margin: auto;
-}
+} 

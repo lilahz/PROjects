@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
 import JuniorsComponent from './JuniorsComponent';
-import FilterComponent from '../FilterComponent';
 import classes from  '../AllItems.module.css';
-import {field_array} from '../data';
 import leftImage from './images/Designer_girl.png';
 import { MDBRow } from 'mdbreact';
 
@@ -32,35 +29,14 @@ class AllJuniors extends Component {
                                               currJuniorsArray: response.data}))
     }
 
-    // juniorFilterFieldOnChange = selected => {
-    //     let newjuniorFieldFilter = [];
-    //     let newItems = [];
-    //     if(selected === null || selected.length === 0) {
-    //         newItems = this.state.allJuniorsArray ; 
-    //     }
-    //     else {
-    //         let valuesArrObj = selected.reduce((acc, current) => acc.concat(current.value), []);
-    //         let filterArrayByField = this.state.items.filter(junior => junior.field.some(r => valuesArrObj.includes(r)));
-    //         newjuniorFieldFilter = selected ;
-    //         newItems = filterArrayByField;
-    //     }
-    //     this.setState({juniorFieldFilter:newjuniorFieldFilter,
-    //                     items:newItems},
-    //     () => {
-    //         localStorage.setItem('juniorFieldFilter', JSON.stringify(newjuniorFieldFilter));
-    //         localStorage.setItem('items', JSON.stringify(newItems));
-    //     })
-    // }
-
-
     toggle = (activeNum) => {
-        activeNum == 1 ? this.setState({isActive1: !this.state.isActive1}) :
-        activeNum == 2 ? this.setState({isActive2: !this.state.isActive2}) :
-        activeNum == 3 ? this.setState({isActive3: !this.state.isActive3}) :
-        activeNum == 4 ? this.setState({isActive4: !this.state.isActive4}) :
-        activeNum == 5 ? this.setState({isActive5: !this.state.isActive5}) :
-        activeNum == 6 ? this.setState({isActive6: !this.state.isActive6}) :
-        activeNum == 7 ? this.setState({isActive7: !this.state.isActive7}) :
+        activeNum === 1 ? this.setState({isActive1: !this.state.isActive1}) :
+        activeNum === 2 ? this.setState({isActive2: !this.state.isActive2}) :
+        activeNum === 3 ? this.setState({isActive3: !this.state.isActive3}) :
+        activeNum === 4 ? this.setState({isActive4: !this.state.isActive4}) :
+        activeNum === 5 ? this.setState({isActive5: !this.state.isActive5}) :
+        activeNum === 6 ? this.setState({isActive6: !this.state.isActive6}) :
+        activeNum === 7 ? this.setState({isActive7: !this.state.isActive7}) :
         this.setState({isActive8: !this.state.isActive8});
     }
 
@@ -76,12 +52,12 @@ class AllJuniors extends Component {
         
         this.toggle(activeNum);
 
-        if( newJuniorsFieldFilter.length == 0 ) // no more filter
+        if( newJuniorsFieldFilter.length === 0 ) // no more filter
             newcurrJuniorsArray = this.state.allJuniorsArray;
         else {
             newcurrJuniorsArray = this.state.allJuniorsArray.filter(junior =>
                 junior.field.some(r => 
-                    newJuniorsFieldFilter.some(f => r == f)));
+                    newJuniorsFieldFilter.some(f => r === f)));
         }
 
         this.setState({juniorsFieldFilter:newJuniorsFieldFilter,
@@ -89,7 +65,6 @@ class AllJuniors extends Component {
     }
 
     render() { 
-        
         const style1 = this.state.isActive1 ? {background: "#D31172"} : {background: "#FFFDFA"};
         const style2 = this.state.isActive2 ? {background: "#D31172"} : {background: "#FFFDFA"};
         const style3 = this.state.isActive3 ? {background: "#D31172"} : {background: "#FFFDFA"};

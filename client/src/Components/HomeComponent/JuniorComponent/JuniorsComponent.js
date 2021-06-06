@@ -18,7 +18,8 @@ export default function JuniorsComponent(props) {
                     cardInstagramURL={junior.instagram_url}
                     cardLinkedInURL={junior.linkedIn_url}
                     cardGitHubURL={junior.gitHub_url}
-                    />))}
+                />
+            ))}
         </MDBRow>
     </div>
 }

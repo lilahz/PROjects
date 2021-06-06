@@ -13,4 +13,4 @@ export const userAuthReducer = (state = {}, action) => {
       default:
         return state;
     }
-} 
+}

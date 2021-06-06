@@ -30,7 +30,7 @@ def company_register():
         else: 
             login_user(new_company) # Log in with the newly created user with remember me off
         
-        return jsonify({'message': 'success'}), 200
+        return jsonify({'message': 'success', 'id': new_company.id}), 200
     else:
         return jsonify({'error': 'already_exists'}), 403
 
@@ -48,7 +48,7 @@ def company_login():
             login_user(company, remember=True)  # Log in with the existing user with remember me on
         else: 
             login_user(company) # Log in with the existing user with remember me off
-        return jsonify({'message': 'success'})
+        return jsonify({'message': 'success', 'id': company.id})
     elif not company:
         return jsonify({'error': 'no_exists'}), 403
     else:

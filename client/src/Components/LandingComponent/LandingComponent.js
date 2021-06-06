@@ -1,10 +1,8 @@
-import React, {Component, useContext} from 'react';
+import React, {Component} from 'react';
 import {MDBCol, MDBRow} from 'mdbreact';
-
 import ProjectCarouselComponent1 from '../HomeComponent/ProjectComponent/ProjectCarouselComponent1';
 import NewProjectModalComponent from '../NewProjectComponent/NewProjectModalComponent'
 import classes from  './LandingComponent.module.css';
-import Tooltip from "@material-ui/core/Tooltip";
 import {ReactComponent as NewProject} from './images/NewProject.svg';
 import { UserContext } from '../../UserContext';
 import { connect } from 'react-redux';
@@ -21,12 +19,14 @@ class LandingComponent extends Component {
     }
 
     toggle = () => {
+        if (!this.props.userAuth.loggedIn && localStorage.getItem('currentUserType') !== 'company') {
+            alert("רק חברות רשומות יכולות להוסיף פרויקטים חדשים");
+            return;
+        }
         this.setState({modal: !this.state.modal});
     }
 
     render () {
-        const context = this.context;
-
         return (
             <div>
             <div className={classes.LandingTop}>
@@ -46,11 +46,11 @@ class LandingComponent extends Component {
                         </MDBRow>
                     </div>}
             </div>
+            <div className={classes.AllItemsHeaderRight}>
+                    <h1 dir="rtl">הפרוייקטים שלנו</h1>
+                    <div className={classes.AllItemsHeaderUnderline}></div>
+            </div>
             <div className={classes.LandingBottom}>
-                <div className={classes.LandingBottomHeaderRight}>
-                    <h1 dir="rtl">הפרויקטים שלנו</h1>
-                    <div className={classes.LandingBottomUnderline}></div>
-                </div>
                 <div className={classes.LandingBottomHeaderLeft}>
                     <MDBRow>
                         <MDBCol>
@@ -84,5 +84,5 @@ const mapStateToProps = state => {
         userAuth: state
     };
   }
-  
+
 export default connect(mapStateToProps)(LandingComponent);

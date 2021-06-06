@@ -13,4 +13,4 @@ const logout = ()  => {
 export const authActions = {
     login,
     logout
-}; 
+};
