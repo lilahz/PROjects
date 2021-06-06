@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBFooter, MDBRow} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBBtn, MDBCardText, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import JuniorModalComponent from './JuniorModalComponent';
 import {field_array} from '../data';
@@ -30,7 +30,7 @@ class JuniorComponent extends Component {
     );
     
     fieldArrayIconForCard = (juniorFields) => (
-        juniorFields.slice(0,3).map((field) => (
+        juniorFields.slice(0,4).map((field) => (
             (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
     );
 
@@ -61,12 +61,12 @@ class JuniorComponent extends Component {
                 <MDBCol className="Item">
                     <MDBCard className="Card">
                         <MDBCardBody className="Body">
-                            <View  hover zoom className="Picture"  >
+                            <View hover zoom className="Picture">
                                 <img style={{width:"100%",height:"100%"}}
                                     src={this.props.cardImage 
                                         ? `data:image/jpeg;base64,${this.props.cardImage}`
-                                        : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
-                                    waves >
+                                        : defaultProfilePic}
+                                    waves alt="">
                                 </img>
                                 <Mask className="InnerBody">
                                     <MDBBtn color=" red-text" className="rounded blue lighten-5" onClick = { this.toggle }>קצת פרטים</MDBBtn>

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Modal from "react-bootstrap/Modal";
-import {Alert, Button, Spinner} from 'reactstrap';
+import {Alert, Spinner} from 'reactstrap';
 import axios from 'axios';
 import {RegisterCompanyFormFirst, RegisterCompanyFormSecond} from './RegisterCompanyForm';
 import { authActions } from '../../actions';
