@@ -37,22 +37,12 @@ class RegisterComponent extends Component {
                         </p>  
                     </div> 
                     <div className={classes.Buttons}>
-                        <Button
-                            className={classes.Button}
-                            variant="outline-secondary"
-                            style={{width: "130px"}}
-                            onClick={this.toggleCompanyForm}
-                            block>
-                                עמותה
-                        </Button>
-                        <Button
-                            className={classes.Button}
-                            variant="outline-secondary"
-                            style={{width: "130px"}}
-                                onClick={this.toggleJuniorForm}
-                            block>
-                                ג'וניור
-                        </Button>
+                    <button className={classes.SignUpButton} type="button" onClick={this.toggleCompanyForm}>
+                        הירשם כעמותה
+                    </button>
+                    <button className={classes.SignUpButton} type="button" onClick={this.toggleJuniorForm}>
+                        הירשם כג'וניור
+                    </button>
                     </div>
                     <RegisterCompanyModalComponent className="Modal"
                         isOpen={this.state.companyModal} 

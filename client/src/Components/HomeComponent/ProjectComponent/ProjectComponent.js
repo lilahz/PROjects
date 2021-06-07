@@ -4,6 +4,7 @@ import '../ItemComponent.css';
 import ProjectModalComponent from './ProjectModalComponent';
 import {field_array} from '../data';
 import { SocialIcon } from 'react-social-icons';
+import defaultProfilePic from './images/default_profile_pic.jpg';
 
 class ProjectComponent extends Component {
     state = {
@@ -16,7 +17,7 @@ class ProjectComponent extends Component {
 
     ValueOption = (field) => (
         <div className="Field">
-            {field.icon}
+            <span>{field.icon} &nbsp; &nbsp;</span>
             {field.label}
         </div >
     );
@@ -33,7 +34,7 @@ class ProjectComponent extends Component {
     );
 
     fieldArrayIconForCard = (projectFields) => (
-        projectFields.slice(0,5).map((field) => (
+        projectFields.slice(0,4).map((field) => (
                 (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
     );
 
@@ -58,11 +59,11 @@ class ProjectComponent extends Component {
                                 <img style={{width:"100%",height:"100%"}}
                                     src={this.props.cardImage 
                                         ? `data:image/jpeg;base64,${this.props.cardImage}`
-                                        : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
+                                        : defaultProfilePic}
                                     waves >
                                 </img>
                                 <Mask className="InnerBody">
-                                    <MDBBtn color=" red-text" className="rounded blue lighten-5" onClick = { this.toggle }>קצת פרטים</MDBBtn>
+                                    <button className="HoverButton" onClick = { this.toggle }>עוד פרטים</button>
                                 </Mask>
                             </View>
                             <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>

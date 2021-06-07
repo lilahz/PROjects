@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, FormFeedback, Input, Form, Col, Row, Button} from 'reactstrap';
+import { FormGroup, Input, Col, Row} from 'reactstrap';
 import './RegisterForm.css';
 import { FaPlus, FaMinus } from "react-icons/fa";
 
