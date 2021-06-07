@@ -6,7 +6,6 @@ import leftImage from './images/Projections-pana.png';
 import classes from  '../AllItems.module.css';
 import { MDBRow } from 'mdbreact';
 
-
 class AllProjects extends Component {
     constructor(props) {    
         super(props)

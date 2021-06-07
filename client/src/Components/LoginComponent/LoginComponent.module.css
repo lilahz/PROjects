@@ -1,23 +1,10 @@
-.Buttons {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    padding: 300px;
-    min-width: 50%;
-    min-height: 25%;
-}
-
-.Button {
-    display: block;
-    margin: 28px;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 12em;
-    background-color: transparent;
-    top: 200px;
-}
+.LoginLeftImage {
+    position: absolute;
+    width: 325px;
+    height: 325px;
+    left: 220px;
+    top: 110px;
+} 
 
 .AllItemsTop .AllItemsBottom {
     position: fixed;
@@ -87,13 +74,21 @@
     height: 100%;
 }
 
+.LandingTopButtons {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 510px;
+}
+
 .AboutPar {
     position: absolute;
-    font-size: 18px;
+    font-size: 22px;
     top: 210px;
     direction: rtl;
-    padding-right: 40px;
+    padding-right: 60px;
     text-align: justify;
+    width: 500px;
 }
 
 .SignUpButton {
@@ -107,6 +102,7 @@
     box-sizing: border-box;
     border-radius: 12px;
     background-color: Transparent;
+    color: #D31172;
 }
 
 .SignUpButton a {
