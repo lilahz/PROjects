@@ -1,22 +1,5 @@
-.Buttons {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    padding: 300px;
-    min-width: 50%;
-    min-height: 25%;
-}
 
-.Button {
-    display: block;
-    margin: 28px;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 12em;
-    background-color: transparent;
-}
+
 .AllItemsTop .AllItemsBottom {
     position: fixed;
     left: 0;
@@ -52,7 +35,7 @@
     width: auto;
     height: 42px;
     left: 0px;
-    padding-right: 220px;
+    padding-right: 198px;
     top: 0px;
     font-style: normal;
     font-weight: bold;
@@ -85,11 +68,56 @@
     height: 100%;
 }
 
+.LandingTopButtons {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 510px;
+}
+
 .AboutPar {
     position: absolute;
-    font-size: 18px;
+    font-size: 22px;
     top: 210px;
     direction: rtl;
-    padding-right: 40px;
+    padding-right: 60px;
     text-align: justify;
+    width: 500px;
+}
+
+
+.RegisterLeftImage {
+    position: absolute;
+    width: 380px;
+    height: 370px;
+    left: 220px;
+    top: 110px;
+} 
+
+
+.SignUpButton {
+    width: 252px;
+    height: 56px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    border: 2px solid #D31172;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: Transparent;
+    color: #D31172;
+}
+
+.SignUpButton a {
+    color: #D31172;
+}
+
+.SignUpButton a:hover {
+    color: #D31172;
+}
+
+.SignUpButton:hover {
+    font-size: 28px;
+    color: #D31172;
 }
