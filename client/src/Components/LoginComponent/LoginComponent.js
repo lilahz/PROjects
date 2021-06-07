@@ -27,31 +27,21 @@ class LoginComponent extends Component {
                 <div>
                     <div>
                         <div className={classes.AllItemsHeaderRight}>
-                            <h1 dir="rtl">התחברות</h1>
+                            <h1 dir="rtl">כניסה</h1>
                             <div className={classes.AllItemsHeaderUnderline}></div>
                         </div> 
                         {/* <img src={leftImage} className={classes.AboutLeftImage} alt=""/>  */}
-                        <p className={classes.AboutPar} dir="rtl">
+                    <p className={classes.AboutPar} dir="rtl">
                            אם כבר נירשמת כל מה שאתה צריך זה ללחוץ על הכפתור שמתאים עבורך ולמצוא פרטנרים לפרויקט חדש!<br></br> 
                         </p>  
                     </div>    
                     <div className={classes.Buttons}>
-                        <Button
-                            className={classes.Button}
-                            variant="outline-secondary"
-                            style={{width: "130px"}}
-                            onClick={this.toggleCompanyForm}
-                            block>
-                                עמותה
-                        </Button>
-                        <Button
-                            className={classes.Button}
-                            variant="outline-secondary"
-                            style={{width: "130px"}}
-                                onClick={this.toggleJuniorForm}
-                            block>
-                                ג'וניור
-                        </Button>
+                    <button className={classes.SignUpButton} type="button" onClick={this.toggleCompanyForm}>
+                        היכנס כעמותה    
+                    </button>
+                    <button className={classes.SignUpButton} type="button" onClick={this.toggleJuniorForm}>
+                        היכנס כג'וניור
+                    </button>
                     </div>      
                     <LoginModalComponent className="Modal"
                         isOpen={this.state.companyModal} 

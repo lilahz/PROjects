@@ -17,8 +17,8 @@ class JuniorComponent extends Component {
     }
 
     ValueOption = (field) => (
-        <div>
-            {field.icon}
+        <div className="Field">
+            <span>{field.icon} &nbsp; &nbsp;</span>
             {field.label}
         </div >
     );
@@ -69,7 +69,7 @@ class JuniorComponent extends Component {
                                     waves alt="">
                                 </img>
                                 <Mask className="InnerBody">
-                                    <MDBBtn color=" red-text" className="rounded blue lighten-5" onClick = { this.toggle }>קצת פרטים</MDBBtn>
+                                    <button className="HoverButton" onClick = { this.toggle }>עוד פרטים</button>
                                 </Mask>
                             </View>
                             <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>

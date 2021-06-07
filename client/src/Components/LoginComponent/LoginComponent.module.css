@@ -95,3 +95,29 @@
     padding-right: 40px;
     text-align: justify;
 }
+
+.SignUpButton {
+    width: 252px;
+    height: 56px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    border: 2px solid #D31172;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: Transparent;
+}
+
+.SignUpButton a {
+    color: #D31172;
+}
+
+.SignUpButton a:hover {
+    color: #D31172;
+}
+
+.SignUpButton:hover {
+    font-size: 28px;
+    color: #D31172;
+}

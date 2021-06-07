@@ -30,6 +30,17 @@
     position: relative;
 }
 
+.Field{
+    position: static;
+    width: auto;
+    height: 27px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 1px 0px;
+}
+
 .Fields{
     position: relative;
     display: flex;
@@ -37,7 +48,7 @@
     align-items: flex-start;
     width: 132px;
     height: 60px;
-    top: -60px;  
+    top: -70px;  
 }
 
 .Body{
@@ -54,23 +65,39 @@
 }
 
 .Picture{
+    /* position: absolute; */
     margin: auto;
     width: 145px;
     height: 145px;
     border-radius: 50%;
     top: -90px;
-    
+}
+
+/* .Picture:hover {
+    opacity: 0.6;
+
+} */
+
+.HoverButton {
+    /* position: relative; */
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    /* top: -30px; */
+    border: none;
+    font-size: 20px;
+    color: #D31172;
+    opacity: 0.6;
+
 }
 
 .Title{
     position: relative;
-    top: -65px;
+    top: -70px;
     width: 100%;
     height: 29px;
     
     text-align: center;
-
-    font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
@@ -90,8 +117,8 @@
 
 .SocialIcon{
     margin: 6px;
-    width: 40px !important;
-    height: 40px !important;
+    width: 35px !important;
+    height: 35px !important;
 }
 
 .SocialIcon:hover{

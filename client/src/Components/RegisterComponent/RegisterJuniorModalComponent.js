@@ -289,11 +289,6 @@ class RegisterJuniorModalComponent extends Component {
                 </MDBRow>
             </div>;
 
-        const submit_button = <button className="modalSubmitButton" onClick={this.handleSubmit}>
-                                {!loading ? "אישור": null }
-                                {loading ? (<Spinner style={{ width: '1.1rem', height: '1.1rem' }} color="light"/> ) : null}
-                               </button>;
-
         const showAlertSuccess = this.state.visible_success ? 
             <Alert style={{textAlign:"center"}} color="success">
                 חשבון נוצר בהצלחה!</Alert> : null;
