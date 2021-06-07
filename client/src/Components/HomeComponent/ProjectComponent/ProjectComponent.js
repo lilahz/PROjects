@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText, Row, MDBFooter} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle ,MDBRow, MDBCardText, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import ProjectModalComponent from './ProjectModalComponent';
 import {field_array} from '../data';
 import { SocialIcon } from 'react-social-icons';
+import defaultProfilePic from './images/default_profile_pic.jpg';
 
 class ProjectComponent extends Component {
     state = {
@@ -16,7 +17,7 @@ class ProjectComponent extends Component {
 
     ValueOption = (field) => (
         <div className="Field">
-            {field.icon}
+            <span>{field.icon} &nbsp; &nbsp;</span>
             {field.label}
         </div >
     );
@@ -27,8 +28,13 @@ class ProjectComponent extends Component {
         })
     );
     
-    fieldArrayIcon = (projectFields) => (
+    fieldArrayIconForModal = (projectFields) => (
         projectFields.map((field) => (
+                (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
+    );
+
+    fieldArrayIconForCard = (projectFields) => (
+        projectFields.slice(0,4).map((field) => (
                 (this.findArrayElementByField(field) === undefined ? "" : this.ValueOption(this.findArrayElementByField(field)))))
     );
 
@@ -53,15 +59,15 @@ class ProjectComponent extends Component {
                                 <img style={{width:"100%",height:"100%"}}
                                     src={this.props.cardImage 
                                         ? `data:image/jpeg;base64,${this.props.cardImage}`
-                                        : "https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"}
+                                        : defaultProfilePic}
                                     waves >
                                 </img>
-                                <Mask className="InnerBody">
-                                    <MDBBtn onClick = { this.toggle }>קצת פרטים</MDBBtn>
+                                <Mask>
+                                    <button className="HoverButton" onClick = { this.toggle }>עוד פרטים</button>
                                 </Mask>
                             </View>
                             <MDBCardTitle className="Title">{this.props.cardTitle}</MDBCardTitle>
-                            <MDBCardText className="Fields">{this.fieldArrayIcon(this.props.cardField)}</MDBCardText>
+                            <MDBCardText className="Fields">{this.fieldArrayIconForCard(this.props.cardField)}</MDBCardText>
                         </MDBCardBody>
                         <MDBFooter className="Footer">
                                 {email_button}
@@ -76,7 +82,7 @@ class ProjectComponent extends Component {
                         modalTitle={this.props.cardTitle}
                         modalCardProjectDesc={this.props.cardProjectDesc}
                         modalCardCompDesc={this.props.cardCompDesc}
-                        modalField={this.fieldArrayIcon(this.props.cardField)}
+                        modalField={this.fieldArrayIconForModal(this.props.cardField)}
                         modalEmail={email_button}
                         modalCompanyURL={companyURL_button}
                         modalFacebookURL={facebookURL_button}

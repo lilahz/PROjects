@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import {Alert} from 'reactstrap';
 import axios from 'axios';
 import NewProjectForm from './NewProjectForm';
-import { MDBBtn, MDBIcon, MDBRow} from 'mdbreact';
+import { MDBRow} from 'mdbreact';
 import './NewProjectModal.css';
 
 import { UserContext } from '../../UserContext';
@@ -75,7 +75,6 @@ class NewProjectModalComponent extends Component {
         this.setState({field : newFieldArray,
             fieldsReady: fieldsReady, 
             formReady: formReady});
-        // console.log("field ready: " + this.state.fieldsReady);
     }
 
     submitForm = (data) => {
@@ -99,20 +98,20 @@ class NewProjectModalComponent extends Component {
 
 
     toggle = (activeNum) => {
-        activeNum == 1 ? this.setState({isActive1: !this.state.isActive1}) :
-        activeNum == 2 ? this.setState({isActive2: !this.state.isActive2}) :
-        activeNum == 3 ? this.setState({isActive3: !this.state.isActive3}) :
-        activeNum == 4 ? this.setState({isActive4: !this.state.isActive4}) :
-        activeNum == 5 ? this.setState({isActive5: !this.state.isActive5}) :
-        activeNum == 6 ? this.setState({isActive6: !this.state.isActive6}) :
-        activeNum == 7 ? this.setState({isActive7: !this.state.isActive7}) :
+        activeNum === 1 ? this.setState({isActive1: !this.state.isActive1}) :
+        activeNum === 2 ? this.setState({isActive2: !this.state.isActive2}) :
+        activeNum === 3 ? this.setState({isActive3: !this.state.isActive3}) :
+        activeNum === 4 ? this.setState({isActive4: !this.state.isActive4}) :
+        activeNum === 5 ? this.setState({isActive5: !this.state.isActive5}) :
+        activeNum === 6 ? this.setState({isActive6: !this.state.isActive6}) :
+        activeNum === 7 ? this.setState({isActive7: !this.state.isActive7}) :
         this.setState({isActive8: !this.state.isActive8});
     }
 
 
     render() {
         const context = this.context;
-        const { errors } = this.state;
+
         const showAlert = this.state.visible ? 
                     <Alert style={{textAlign:"center"}} variant="success">
                         פרוייקט נוצר בהצלחה!</Alert> : null;
@@ -139,13 +138,14 @@ class NewProjectModalComponent extends Component {
                     <button type="button" style={style8} onClick={() => this.onChangefield("sales", 8)}>מכירות</button>
                 </MDBRow>
             </div>;
+
         return (
             <div>
             <Modal show={this.props.isOpen} onHide={this.props.toggle} key={this.props.key}
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 dialogClassName="modal-70w"
-                className="modal">
+                className="newProjectmodal">
                 <div className="modalTitleTop">
                     <Modal.Title className="modalTitle" id="contained-modal-title-vcenter">
                     יצירת פרוייקט חדש{this.props.modalTitle}
@@ -162,9 +162,7 @@ class NewProjectModalComponent extends Component {
                 ? <button className="modalSubmitButton"
                     onClick={() => this.handleSubmit(this.props.toggle)}>צור
                   </button>
-                : <button className="modalSubmitButton" disabled
-                    onClick={() => this.handleSubmit(this.props.toggle)}>צור
-                  </button>}
+                : <button className="modalSubmitButton" disabled>צור</button>}
                 {showAlert}
             </Modal>
             </div>

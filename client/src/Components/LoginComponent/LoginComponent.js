@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { Button } from 'react-bootstrap';
-
+import {MDBCol, MDBRow} from 'mdbreact';
 import classes from './LoginComponent.module.css';
 import LoginModalComponent from './LoginModalComponent';
+import leftImage from './images/login.png';
 
 class LoginComponent extends Component {
     constructor(props) {
@@ -23,28 +23,32 @@ class LoginComponent extends Component {
 
     render() {
         return (
-            <div className={classes.LoginComponent}>
+            <div>
                 <div>
-                    <h1>התחברות</h1>
-                    <h3>?מי אתה</h3>
-                    <div className={classes.Buttons}>
-                        <Button
-                            className={classes.Button}
-                            variant="outline-secondary"
-                            style={{margin: "8px"}}
-                            onClick={this.toggleCompanyForm}
-                            block>
-                                עמותה
-                        </Button>
-                        <Button
-                            className={classes.Button}
-                            variant="outline-secondary"
-                            style={{margin: "8px"}}
-                                onClick={this.toggleJuniorForm}
-                            block>
-                                מתמחה
-                        </Button>
-                    </div>
+                    <div>
+                        <div className={classes.AllItemsHeaderRight}>
+                            <h1 dir="rtl">כניסה</h1>
+                            <div className={classes.AllItemsHeaderUnderline}></div>
+                        </div> 
+                        <img src={leftImage} className={classes.LoginLeftImage} alt=""/> 
+                    <p className={classes.AboutPar} dir="rtl">
+                           אם כבר נירשמת כל מה שאתה צריך זה ללחוץ על הכפתור שמתאים עבורך ולמצוא פרטנרים לפרויקט חדש!<br></br> 
+                        </p>  
+                    </div>    
+                    <div className={classes.LandingTopButtons}>
+                        <MDBRow>
+                            <MDBCol>
+                            <button className={classes.SignUpButton} type="button" onClick={this.toggleCompanyForm}>
+                                היכנס כעמותה    
+                            </button>
+                            </MDBCol>
+                            <MDBCol>
+                            <button className={classes.SignUpButton} type="button" onClick={this.toggleJuniorForm}>
+                                היכנס כג'וניור
+                            </button>
+                            </MDBCol>
+                        </MDBRow>
+                    </div> 
                     <LoginModalComponent className="Modal"
                         isOpen={this.state.companyModal} 
                         toggle={this.toggleCompanyForm}

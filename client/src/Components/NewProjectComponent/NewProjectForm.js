@@ -4,11 +4,11 @@ import './NewProjectForm.css';
 
 const NewProjectForm = (props) => (
     <div>
-        <FormGroup>
+        <FormGroup className="formGroup">
             <Input id="company_name" type="text" value={props.state.company_name} 
                     placeholder={localStorage.getItem('email')} disabled/>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="formGroup">
             <Input id="description" type="text" value={props.description} maxLength="200" onChange={props.handleChange}
                    placeholder="ספרו על הפרוייקט *"/>
         </FormGroup>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import './RegisterForm.css';
 
-import classes from './RegisterForm.module.css';
 
 const RegisterForm = props => {
     const [state, setState] = useState({

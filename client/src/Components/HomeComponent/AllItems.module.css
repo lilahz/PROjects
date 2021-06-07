@@ -85,7 +85,7 @@
     position: absolute;
     width: 405px;
     height: 50px;
-    top: 0px;
+    top: 60px;
 
     font-style: normal;
     font-weight: normal;
@@ -105,7 +105,7 @@
     width: 40%;
     height: 29px;
     right: 0px;
-    top: 50px;
+    top: 120px;
 }
 
 .AllItemsFilterButtons button{
@@ -133,4 +133,21 @@
     line-height: 21px;
     border: none;
     outline:none;   
+}
+
+.NewProjectButton {
+    position: absolute;
+    top: 90px;
+    right: 40px;
+}
+
+.NewProjectSVG:hover {
+    opacity: 70%;
+}
+
+.LandingBottomHeaderNewProjectButton {
+    position: absolute;
+    top: 0px;
+    border: transparent;
+    background-color: transparent;
 }

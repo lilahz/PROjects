@@ -1,15 +1,14 @@
-
 .formGroup {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    padding: 6px 8px;
-
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 0px;
     position: static;
-    max-width: 252px !important;
+    width: 242px;
     height: 36px;
-    left: 0px;
     top: 0px;
 
     flex: none;
@@ -17,10 +16,4 @@
     align-self: stretch;
     flex-grow: 0;
     margin: 10px 0px;
-}
-
-.fieldHeader {
-    padding: 6px 8px;
-    font-size: 22px;
-    padding-top: 20px;
 }

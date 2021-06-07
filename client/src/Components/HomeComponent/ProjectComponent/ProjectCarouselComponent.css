@@ -1,7 +1,6 @@
-.carousel {
-    width: 90%;
+.carousel {  
+    width: 90;
     top: 660px;
-    right: 100px;
     position: absolute;
     display: flex;
     justify-content: space-around;

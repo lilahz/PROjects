@@ -1,9 +1,7 @@
-import React, {Component , useContext } from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon } from 'mdbreact';
+import React, {Component } from 'react';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink } from 'mdbreact';
 import './NavBarComponent.css';
-import { UserContext } from '../../UserContext';
 import logo from './logo.png';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class NavBarComponent extends Component {
