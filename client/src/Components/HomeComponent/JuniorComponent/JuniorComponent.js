@@ -68,7 +68,7 @@ class JuniorComponent extends Component {
                                         : defaultProfilePic}
                                     waves alt="">
                                 </img>
-                                <Mask className="InnerBody">
+                                <Mask >
                                     <button className="HoverButton" onClick = { this.toggle }>עוד פרטים</button>
                                 </Mask>
                             </View>

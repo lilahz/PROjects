@@ -79,7 +79,7 @@
 } */
 
 .HoverButton {
-    /* position: relative; */
+    position: relative;
     width: 145px;
     height: 145px;
     border-radius: 50%;
@@ -87,8 +87,8 @@
     border: none;
     font-size: 20px;
     color: #D31172;
-    opacity: 0.6;
-
+    opacity: 0.8;
+    font-weight: bold;
 }
 
 .Title{

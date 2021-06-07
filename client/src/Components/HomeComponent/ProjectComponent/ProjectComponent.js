@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle ,MDBBtn, MDBCardText, MDBFooter} from 'mdbreact';
+import {View, Mask, MDBCol, MDBCard, MDBCardBody, MDBCardTitle ,MDBRow, MDBCardText, MDBFooter} from 'mdbreact';
 import '../ItemComponent.css';
 import ProjectModalComponent from './ProjectModalComponent';
 import {field_array} from '../data';
@@ -62,7 +62,7 @@ class ProjectComponent extends Component {
                                         : defaultProfilePic}
                                     waves >
                                 </img>
-                                <Mask className="InnerBody">
+                                <Mask>
                                     <button className="HoverButton" onClick = { this.toggle }>עוד פרטים</button>
                                 </Mask>
                             </View>
