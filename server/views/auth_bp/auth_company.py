@@ -4,6 +4,7 @@ from flask_login import login_required, logout_user, current_user, login_user
 from server.models.Company import Company
 from server.models import login_manager
 
+
 def company_register():
     data = request.json
     email = data.get('email')

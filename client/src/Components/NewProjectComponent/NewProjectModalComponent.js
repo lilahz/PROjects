@@ -16,7 +16,7 @@ class NewProjectModalComponent extends Component {
     }
 
     getInitialState = () => ({
-        company_id: "1",
+        company_id: localStorage.getItem('id'),
         field: [],
         status: "todo",
         description: "",
@@ -138,7 +138,7 @@ class NewProjectModalComponent extends Component {
                     <button type="button" style={style8} onClick={() => this.onChangefield("sales", 8)}>מכירות</button>
                 </MDBRow>
             </div>;
-            
+
         return (
             <div>
             <Modal show={this.props.isOpen} onHide={this.props.toggle} key={this.props.key}
