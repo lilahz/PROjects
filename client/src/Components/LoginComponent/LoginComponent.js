@@ -32,19 +32,19 @@ class LoginComponent extends Component {
                         </div> 
                         <img src={leftImage} className={classes.LoginLeftImage} alt=""/> 
                     <p className={classes.AboutPar} dir="rtl">
-                           אם כבר נירשמת כל מה שאתה צריך זה ללחוץ על הכפתור שמתאים עבורך ולמצוא פרטנרים לפרויקט חדש!<br></br> 
+                           אם כבר נירשמת כל מה שאת/ה צריך/ה זה ללחוץ על הכפתור שמתאים עבורך ולמצוא פרטנרים לפרויקט חדש!<br></br> 
                         </p>  
                     </div>    
                     <div className={classes.LandingTopButtons}>
                         <MDBRow>
                             <MDBCol>
                             <button className={classes.SignUpButton} type="button" onClick={this.toggleCompanyForm}>
-                                היכנס כעמותה    
+                                היכנס/י כעמותה    
                             </button>
                             </MDBCol>
                             <MDBCol>
                             <button className={classes.SignUpButton} type="button" onClick={this.toggleJuniorForm}>
-                                היכנס כג'וניור
+                                היכנס/י  כג'וניור
                             </button>
                             </MDBCol>
                         </MDBRow>

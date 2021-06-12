@@ -60,7 +60,7 @@ const AboutComponent = () => {
             <div className={classes.contactUsTop}>
                 <div className={classes.contactUsHeaderRight}>
                     <h1 dir="rtl">ליצירת קשר
-                    <SocialIcon className={mailto.SocialIcon} network="mailto" url={"mailto:" + "projectsbgu21@gmail.com" + "?subject=Bla"} bgColor="#CD3636" fgColor="white"/>
+                    <SocialIcon className={mailto.SocialIcon} network="mailto" url={"mailto:" + "projectsbgu21@gmail.com"} bgColor="#CD3636" fgColor="white"/>
                     </h1>
                     <div className={classes.AllItemsHeaderUnderline}></div>
                 </div> 

@@ -41,7 +41,7 @@ class JuniorComponent extends Component {
     );
 
     render () {
-        const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.cardEmail + "?subject=Bla"} bgColor="#CD3636" fgColor="white"/>;
+        const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.cardEmail + "?subject=הגעתי אליך מאתר PROjects!&bo" + "&body= היי, אשמח להיעזר ביכולותיך! "} bgColor="#CD3636" fgColor="white"/>;
         const personalURL_button = this.props.cardPersonalURL 
             ? <SocialIcon className="SocialIcon" url={this.props.cardPersonalURL} target="_blank" fgColor="white" />
             : null;

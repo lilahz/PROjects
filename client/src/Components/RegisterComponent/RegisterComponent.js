@@ -34,21 +34,21 @@ class RegisterComponent extends Component {
                         </div> 
                         <img src={leftImage} className={classes.RegisterLeftImage} alt=""/> 
                         <p className={classes.AboutPar} dir="rtl">
-                           אם עוד לא נרשמת לאתר תלחץ על הכפתור שמתאים לך ותמצא שותפים חדשים לפרויקט!<br></br> <br></br> 
-                           רוצה לקחת חלק בפרויקט? הירשם כג'וניור!<br></br>
-                           מחפש בעלי מקצוע לעזרה? הירשם כעמותה!
+                           אם עוד לא נרשמת לאתר תלחץ/י על הכפתור שמתאים לך ותמצא/י שותפים חדשים לפרויקט!<br></br> <br></br> 
+                           רוצה לקחת חלק בפרויקט? הירשם/י כג'וניור/ית!<br></br>
+                           מחפש/ת בעלי מקצוע לעזרה? הירשם/י כעמותה!
                         </p>  
                     </div> 
                     <div className={classes.LandingTopButtons}>
                         <MDBRow>
                             <MDBCol>
                                 <button className={classes.SignUpButton} type="button" onClick={this.toggleCompanyForm}>
-                                    הירשם כעמותה    
+                                    הירשם/י כעמותה    
                                 </button>
                             </MDBCol>
                             <MDBCol>
                                 <button className={classes.SignUpButton} type="button" onClick={this.toggleJuniorForm}>
-                                הירשם כג'וניור
+                                הירשם/י כג'וניור
                                 </button>
                             </MDBCol>
                         </MDBRow>
