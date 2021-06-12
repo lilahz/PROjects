@@ -161,8 +161,9 @@ class RegisterCompanyModalComponent extends Component {
                 this.setState({loading: false});
                 this.setState({visible_error : false});
                 this.setState({visible_success : true});
-                console.log("respone data : " + response.data);
-                console.log("response status : " + response.status);
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('email', data.email);
+                localStorage.setItem('currentUserType', this.props.type);
                 this.props.login();
                 this.props.history.push('/');
             })
