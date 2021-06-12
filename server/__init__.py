@@ -6,13 +6,11 @@ from server.models import db, init_db , login_manager
 
 from server.views.auth_bp.view import auth_bp
 from server.views.home_bp.view import home_bp
-from server.views.portfolio_bp.view import portfolio_bp
 from server.views.new_project_bp.view import new_project_bp
-from server.views.join_project_bp.view import join_project_bp
+from server.views.project_change_status_bp.view import project_change_status_bp
 
 
 def create_app(config_mode):
-
     app = Flask(__name__, static_url_path='', static_folder='build')
     app.config.from_object(config_by_mode[config_mode])
 
@@ -25,9 +23,8 @@ def create_app(config_mode):
 
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(home_bp, url_prefix='/api/home')
-    app.register_blueprint(portfolio_bp, url_prefix='/api/portfolio')
     app.register_blueprint(new_project_bp, url_prefix='/api/new_project')
-    app.register_blueprint(join_project_bp, url_prefix='/api/join_project')
+    app.register_blueprint(project_change_status_bp, url_prefix='/api/project_change_status')
 
     if config_mode == 'prod':
         @app.route('/')

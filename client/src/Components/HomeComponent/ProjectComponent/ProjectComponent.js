@@ -40,15 +40,15 @@ class ProjectComponent extends Component {
 
 
     render () {
-        const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.modalEmail + "?subject=Bla"}  bgColor="#CD3636" fgColor="white"/>
-        const companyURL_button = this.props.modalCompanyURL
-            ? <SocialIcon className="SocialIcon" url={this.props.modalCompanyURL} target="_blank" fgColor="white"/>
+        const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.cardEmail + "?subject=Bla"}  bgColor="#CD3636" fgColor="white"/>
+        const companyURL_button = this.props.cardCompanyURL
+            ? <SocialIcon className="SocialIcon" url={this.props.cardCompanyURL} target="_blank" fgColor="white"/>
             : null;
-        const facebookURL_button = this.props.modalFacebookURL
-            ? <SocialIcon className="SocialIcon" url={this.props.modalFacebookURL} target="_blank" fgColor="white"/>
+        const facebookURL_button = this.props.cardFacebookURL
+            ? <SocialIcon className="SocialIcon" url={this.props.cardFacebookURL} target="_blank" fgColor="white"/>
             : null;
-        const instagramURL_button = this.props.modalInstagramURL
-            ? <SocialIcon className="SocialIcon" url={this.props.modalInstagramURL} target="_blank" fgColor="white"/>
+        const instagramURL_button = this.props.cardInstagramURL
+            ? <SocialIcon className="SocialIcon" url={this.props.cardInstagramURL} target="_blank" fgColor="white"/>
             : null;
         return (
             <MDBCol md="4">
