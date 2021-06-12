@@ -1,7 +1,6 @@
 from server.models import db
 from server.models.Company import Company
 
-
 class Project(db.Model):
     __tablename__ = 'Projects'
 
@@ -25,6 +24,13 @@ class Project(db.Model):
 
     def add_new_project(new_project):
         db.session.add(new_project)
+        db.session.commit()
+
+    def change_project_status(project_id, status):
+        project = Project.query.filter_by(id=project_id).first()
+        print("!!!!!!!!!")
+        print(project.description)
+        project.status = status
         db.session.commit()
 
     def dump(self, company_name, company_email, company_description, company_profile_picture=None, company_url=None, facebook_url=None, instagram_url=None):
