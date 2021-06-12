@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.55d6ee39.chunk.css",
-    "main.js": "/static/js/main.fb013b3b.chunk.js",
-    "main.js.map": "/static/js/main.fb013b3b.chunk.js.map",
+    "main.js": "/static/js/main.7e95b2fb.chunk.js",
+    "main.js.map": "/static/js/main.7e95b2fb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.1a0c3f0a.js",
     "runtime-main.js.map": "/static/js/runtime-main.1a0c3f0a.js.map",
     "static/css/2.9f8c4f8f.chunk.css": "/static/css/2.9f8c4f8f.chunk.css",
@@ -16,7 +16,7 @@
     "static/js/2.81d05cbb.chunk.js.LICENSE.txt": "/static/js/2.81d05cbb.chunk.js.LICENSE.txt",
     "static/media/Designer_girl.1b3987a9.png": "/static/media/Designer_girl.1b3987a9.png",
     "static/media/LandingComponent.module.css": "/static/media/LandingPageBackGroundWithAvatars.ad670928.jpeg",
-    "static/media/NewProject.10813ddf.svg": "/static/media/NewProject.10813ddf.svg",
+    "static/media/NewProject.0c6a18ac.svg": "/static/media/NewProject.0c6a18ac.svg",
     "static/media/Projections-pana.63ce17d8.png": "/static/media/Projections-pana.63ce17d8.png",
     "static/media/TEAM.456dab00.png": "/static/media/TEAM.456dab00.png",
     "static/media/mdb.css": "/static/media/arrow_right.0897f985.svg",
@@ -32,6 +32,6 @@
     "static/css/2.9f8c4f8f.chunk.css",
     "static/js/2.81d05cbb.chunk.js",
     "static/css/main.55d6ee39.chunk.css",
-    "static/js/main.fb013b3b.chunk.js"
+    "static/js/main.7e95b2fb.chunk.js"
   ]
 }
