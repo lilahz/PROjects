@@ -33,13 +33,13 @@ class NavBarComponent extends Component {
     return (
       <header>
         <MDBNavbar style={bgPink} expand="md" scrolling fixed="top">
-          <MDBNavbarBrand>
-                <img className="NavBarLogo" src={logo} alt=""/>
-          </MDBNavbarBrand>
           <MDBNavbarToggler onClick={ this.onClick } />
           <MDBCollapse isOpen = { this.state.collapse } navbar>
             <MDBNavbarNav right>
-                <MDBNavItem style={{ width: '45' }}> <MDBNavLink to="/">דף הבית</MDBNavLink> </MDBNavItem>
+                <MDBNavbarBrand>
+                      <img className="NavBarLogo" src={logo} alt=""/>
+                </MDBNavbarBrand>
+                <MDBNavItem> <MDBNavLink to="/">דף הבית</MDBNavLink> </MDBNavItem>
                 <MDBNavItem> <MDBNavLink to="/home/projects">פרויקטים</MDBNavLink> </MDBNavItem>
                 <MDBNavItem> <MDBNavLink to="/home/juniors">ג'וניורים</MDBNavLink> </MDBNavItem>
                 <MDBNavItem> <MDBNavLink to="/home/about">מי אנחנו</MDBNavLink> </MDBNavItem>
