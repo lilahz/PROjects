@@ -5,7 +5,6 @@ import JuniorModalComponent from './JuniorModalComponent';
 import {field_array} from '../data';
 import { SocialIcon } from 'react-social-icons';
 import defaultProfilePic from './images/default_profile_pic.jpg';
-// import defaultProfilePic from './images/AVATAR2.png';
 
 
 class JuniorComponent extends Component {
