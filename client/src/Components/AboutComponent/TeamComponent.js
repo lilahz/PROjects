@@ -6,7 +6,7 @@ import classes from './TeamComponent.module.css';
 
 class TeamComponent extends Component {
     render () {
-        const email_button = <SocialIcon className={classes.SocialIcon} network="mailto" url={"mailto:" + this.props.cardEmail + "?subject=Bla"} bgColor="#CD3636" fgColor="white"/>;
+        const email_button = <SocialIcon className={classes.SocialIcon} network="mailto" url={"mailto:" + this.props.cardEmail} bgColor="#CD3636" fgColor="white"/>;
         const facebookURL_button = <SocialIcon className={classes.SocialIcon} url={this.props.cardFB} target="_blank" fgColor="white" />;
         const linkedInURL_button = <SocialIcon className={classes.SocialIcon} url={this.props.cardLD} target="_blank" fgColor="white"/>;
 
