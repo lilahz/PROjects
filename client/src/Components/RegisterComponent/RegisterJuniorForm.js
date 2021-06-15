@@ -42,7 +42,7 @@ const RegisterJuniorFormSecond = (props) => (
                         <Input id="website_label" type="select" value={x.label} onChange={e=>props.handleChangeWebsite(e,i,'label')}>
                             <option>אתר אישי</option>
                             <option>פייסבוק</option>
-                            <option>אינטגסרם</option>
+                            <option>אינסטגרם</option>
                             <option>לינקדין</option>
                             <option>גיטהאב</option>
                         </Input>
