@@ -122,7 +122,7 @@
 }
 
 .SocialIcon:hover{
-    opacity: 70%;
+    transform: scale(1.15);
 }
 
 .InnerBody{

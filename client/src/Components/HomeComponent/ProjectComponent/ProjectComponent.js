@@ -42,7 +42,7 @@ class ProjectComponent extends Component {
     render () {
         const email_button = <SocialIcon className="SocialIcon" network="mailto" url={"mailto:" + this.props.cardEmail + "?subject=הגעתי אליך מאתר PROjects!" + "&body=היי, ראיתי את הפרוייקט שלך ואשמח לקחת חלק!"}  bgColor="#CD3636" fgColor="white"/>
         const companyURL_button = this.props.cardCompanyURL
-            ? <SocialIcon className="SocialIcon" url={this.props.cardCompanyURL} target="_blank" fgColor="white"/>
+            ? <SocialIcon className="SocialIcon" url={this.props.cardCompanyURL} fgColor="white"/>
             : null;
         const facebookURL_button = this.props.cardFacebookURL
             ? <SocialIcon className="SocialIcon" url={this.props.cardFacebookURL} target="_blank" fgColor="white"/>
